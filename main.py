@@ -4,6 +4,7 @@ import logging
 import asyncio
 import sys
 from scraper import get_top_daily_posts
+from ai_processor import generate_digest
 from bot import send_daily_digest
 
 # Fix for "Event loop is closed" RuntimeError on Windows specifically for asyncio + Playwright
@@ -47,11 +48,14 @@ async def async_job():
         logger.info("No posts found today. Skipping Telegram message.")
         return
 
-    logger.info(f"Found {len(posts)} posts to send.")
+    logger.info(f"Found {len(posts)} posts. Passing to AI Processor...")
     
-    # 2. Send via Telegram
+    # 2. Process posts using AI (Gemini / Claude)
+    ai_message = await generate_digest(posts)
+    
+    # 3. Send via Telegram
     try:
-        success = await send_daily_digest(posts)
+        success = await send_daily_digest(ai_message)
     except Exception as e:
         logger.error(f"Error running the async Telegram function: {e}")
         success = False

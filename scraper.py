@@ -1,7 +1,7 @@
 import asyncio
 import logging
 from playwright.async_api import async_playwright
-from config import KEYWORDS
+from config import KEYWORDS, POSTS_PER_KEYWORD
 
 logger = logging.getLogger(__name__)
 
@@ -71,10 +71,9 @@ async def fetch_posts_for_keyword(page, keyword, limit):
     logger.info(f"Evaluated successfully. Found {len(valid_items)} items.")
     return valid_items[:limit]
 
-async def get_top_daily_posts(keywords: list = KEYWORDS, total_limit: int = 10):
+async def get_top_daily_posts(keywords: list = KEYWORDS, posts_per_keyword: int = POSTS_PER_KEYWORD):
     all_posts = []
     seen_permalinks = set()
-    limit_per_keyword = max(total_limit // len(keywords), 1) + 2
     
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
@@ -88,7 +87,7 @@ async def get_top_daily_posts(keywords: list = KEYWORDS, total_limit: int = 10):
         for keyword in keywords:
             logger.info(f"Scraping Threads for keyword: {keyword}")
             try:
-                posts = await fetch_posts_for_keyword(page, keyword, limit=limit_per_keyword)
+                posts = await fetch_posts_for_keyword(page, keyword, limit=posts_per_keyword)
                 for post in posts:
                     if post["permalink"] not in seen_permalinks:
                         seen_permalinks.add(post["permalink"])
@@ -98,7 +97,7 @@ async def get_top_daily_posts(keywords: list = KEYWORDS, total_limit: int = 10):
         
         await browser.close()
         
-    return all_posts[:total_limit]
+    return all_posts
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
