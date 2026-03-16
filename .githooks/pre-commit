@@ -1,0 +1,28 @@
+#!/bin/bash
+# Pre-commit hook: Run pytest and AI code review
+
+echo "Running pre-commit checks..."
+
+# 1. Run unit tests
+echo "=> Running pytest..."
+export PYTHONPATH="."
+pytest -v tests/
+if [ $? -ne 0 ]; then
+    echo "❌ pytest failed. Please fix failing tests before committing."
+    exit 1
+fi
+
+# 2. Run AI code review (only if GEMINI_API_KEY is present)
+if [ -n "$GEMINI_API_KEY" ]; then
+    echo "=> Running AI Code Review..."
+    python scripts/ai_code_review.py
+    if [ $? -ne 0 ]; then
+        echo "❌ AI Code Review flagged critical issues. Please fix them."
+        exit 1
+    fi
+else
+    echo "=> Skipping AI Code Review (GEMINI_API_KEY is not set)."
+fi
+
+echo "✅ All pre-commit checks passed!"
+exit 0

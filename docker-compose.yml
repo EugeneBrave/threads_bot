@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  threads-bot:
+    build: .
+    container_name: threads-bot
+    restart: unless-stopped
+    # 預設會讀取同一層目錄的 .env 檔案作為環境變數
+    env_file:
+      - .env
+    volumes:
+      # 將本機的 logs 資料夾掛載到容器內的 /app 下
+      # 為了避免 Docker 幫我們建立一個名叫 bot.log 的資料夾，我們直接掛載整個目錄，
+      # 但也需要把 main.py 內的 logging 設定改為存入 logs/bot.log，
+      # 或者如果在不修改程式碼的情況下，可以直接不掛載 log，讓它留在容器內藉由 Synology 介面檢視。
+      # 這裡我們先單純處理時區問題，如果需要掛載請確定宿主機有個已存在的 bot.log 檔案
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro

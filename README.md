@@ -83,8 +83,24 @@ GEMINI_API_KEY=你的Google_Gemini_API_Key
 python main.py --now
 ```
 
-### 模式三：本機自管排程模式
-如果你想把腳本架設在自己的伺服器或樹莓派上常駐運行，可以不帶參數啟動。機器人會以常駐程式的形式掛載在背景，每天抵達指定時間（預設為早上 09:00）時自動執行。
+### 模式三：Synology NAS / Docker 部署 (推薦做為 24 小時代管方案)
+如果你有 Synology NAS 或任何支援 Docker 的伺服器，可以使用我們準備好的 Docker 環境來運行，這能確保環境乾淨獨立且穩定運行。
+
+1. 將專案的所有檔案放進你的 NAS 目錄中 (例如 `docker/threads_bot`)。
+2. 在該目錄新增 `.env` 檔案並填入你的金鑰。
+3. **在 Synology Container Manager 中**：
+   - 選擇「新增專案」，來源選擇 `建立 docker-compose.yml` (系統會自動抓取目錄內的檔案)
+   - 點擊「建置並啟動此專案」即可。
+4. **或透過 SSH 啟動**：
+   ```bash
+   sudo docker-compose up -d --build
+   ```
+   > 容器已預設掛載 `/etc/localtime` 來同步主機的台灣時間，確保每天早上 09:00 準時發送！
+
+---
+
+### 模式四：本機自管排程模式
+如果你想把腳本架設在自己的伺服器或樹莓派上常駐運行（非 Docker 環境），可以不帶參數啟動。機器人會以常駐程式的形式掛載在背景，每天抵達指定時間（預設為早上 09:00）時自動執行。
 
 ```powershell
 python main.py
