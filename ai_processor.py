@@ -1,12 +1,14 @@
 import logging
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from config import GEMINI_API_KEY
 
 logger = logging.getLogger(__name__)
 
 # Configure Gemini
+client = None
 if GEMINI_API_KEY:
-    genai.configure(api_key=GEMINI_API_KEY)
+    client = genai.Client(api_key=GEMINI_API_KEY)
 
 # System prompt to guide the AI
 SYSTEM_PROMPT = """
@@ -46,12 +48,14 @@ async def generate_digest(posts: list[dict]) -> str:
     prompt = f"{SYSTEM_PROMPT}\n\n{posts_text}\n\n請開始你的分析與撰寫："
 
     # Try Gemini First
-    if GEMINI_API_KEY:
+    if client:
         try:
             logger.info("Attempting to generate digest using Google Gemini...")
-            # Using the gemini-3-flash-preview model requested by the user
-            model = genai.GenerativeModel('gemini-3-flash-preview')
-            response = await model.generate_content_async(prompt)
+            # Using the gemini-2.5-flash model
+            response = await client.aio.models.generate_content(
+                model='gemini-2.5-flash',
+                contents=prompt,
+            )
             if response.text:
                 logger.info("Successfully generated digest using Gemini.")
                 return response.text
