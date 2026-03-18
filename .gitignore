@@ -35,3 +35,20 @@ bot.log
 
 # Playwright debug screenshots
 debug_*.png
+
+# Node / Web frontend
+web/node_modules/
+web/dist/
+
+# Pytest
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+
+# Test scratch files
+test_gemini.py

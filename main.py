@@ -1,8 +1,11 @@
 import time
+import json
+import os
 import schedule
 import logging
 import asyncio
 import sys
+from datetime import datetime
 from scraper import get_top_daily_posts
 from ai_processor import generate_digest
 from bot import send_daily_digest
@@ -53,7 +56,10 @@ async def async_job():
     # 2. Process posts using AI (Gemini / Claude)
     ai_message = await generate_digest(posts)
     
-    # 3. Send via Telegram
+    # 3. Save posts to JSON for the web viewer
+    save_posts_to_json(posts, ai_message)
+    
+    # 4. Send via Telegram
     try:
         success = await send_daily_digest(ai_message)
     except Exception as e:
@@ -64,6 +70,41 @@ async def async_job():
         logger.info("Daily job completed successfully.")
     else:
         logger.error("Daily job finished with errors - message not sent.")
+
+def save_posts_to_json(posts: list, ai_summary: str):
+    """Save scraped posts and AI summary to web/public/data/posts.json"""
+    from config import KEYWORDS
+    
+    json_path = os.path.join(os.path.dirname(__file__), "web", "public", "data", "posts.json")
+    os.makedirs(os.path.dirname(json_path), exist_ok=True)
+    
+    # Load existing data if available
+    existing_data = {}
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+        except (json.JSONDecodeError, IOError):
+            existing_data = {}
+    
+    today = datetime.now().strftime("%Y-%m-%d")
+    
+    existing_data[today] = {
+        "keyword_tags": KEYWORDS,
+        "ai_summary": ai_summary,
+        "posts": posts
+    }
+    
+    # Only keep the latest 5 days of data
+    MAX_DAYS = 5
+    if len(existing_data) > MAX_DAYS:
+        sorted_dates = sorted(existing_data.keys(), reverse=True)
+        existing_data = {d: existing_data[d] for d in sorted_dates[:MAX_DAYS]}
+    
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(existing_data, f, ensure_ascii=False, indent=2)
+    
+    logger.info(f"Saved {len(posts)} posts to {json_path} (keeping {len(existing_data)} days)")
 
 def job():
     """Wrapper to run async job from sync schedule"""
