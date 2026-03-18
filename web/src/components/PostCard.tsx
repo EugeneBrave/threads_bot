@@ -36,43 +36,93 @@ const Avatar = styled.div`
 const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
 `;
 
 const Username = styled.span`
   color: #f5f5f5;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const MetaRow = styled.div`
+  color: #777;
+  font-size: 12px;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `;
 
 const KeywordBadge = styled.span`
-  color: #666;
-  font-size: 12px;
-  margin-top: 2px;
+  background: rgba(167, 139, 250, 0.1);
+  color: #a78bfa;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid rgba(167, 139, 250, 0.2);
 `;
 
-const PostText = styled.p`
-  color: #e0e0e0;
+const PostText = styled.div`
+  color: #eee;
   font-size: 15px;
-  line-height: 1.6;
-  margin: 0 0 14px;
+  line-height: 1.5;
+  margin: 0 0 16px;
   white-space: pre-wrap;
   word-break: break-word;
+  letter-spacing: -0.01em;
 `;
 
-const LinkRow = styled.a`
+const BottomRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+`;
+
+const StatsRow = styled.div`
+  display: flex;
+  gap: 16px;
+`;
+
+const StatItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #777;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+`;
+
+const LinkButton = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: #4a9eff;
+  color: #a78bfa;
   font-size: 13px;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
+  font-weight: 600;
+  opacity: 0.8;
+  transition: opacity 0.2s;
 
   &:hover {
-    color: #7cb8ff;
+    opacity: 1;
+    text-decoration: underline;
   }
 `;
+
+function formatNumber(n: number): string {
+  if (n === 0) return '0';
+  if (n >= 10000) return `${(n / 10000).toFixed(1)}萬`;
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+  return String(n);
+}
 
 interface PostCardProps {
   post: Post;
@@ -80,12 +130,13 @@ interface PostCardProps {
 }
 
 const PostCard = ({ post, index }: PostCardProps) => {
-  // Extract username from the permalink if possible
   const getEmoji = (keyword?: string) => {
     if (!keyword) return '👤';
-    if (keyword.includes('復古')) return '🧥';
-    if (keyword.includes('咔嘰')) return '👘';
-    return '👔';
+    const kw = keyword.toLowerCase();
+    if (kw.includes('復古')) return '🧥';
+    if (kw.includes('咔嘰')) return '👖';
+    if (kw.includes('穿搭')) return '👔';
+    return '👤';
   };
 
   return (
@@ -93,14 +144,24 @@ const PostCard = ({ post, index }: PostCardProps) => {
       <CardHeader>
         <Avatar>{getEmoji(post.keyword)}</Avatar>
         <UserInfo>
-          <Username>Threads 用戶</Username>
-          {post.keyword && <KeywordBadge>#{post.keyword}</KeywordBadge>}
+          <Username>{post.username}</Username>
+          <MetaRow>
+            {post.post_date && <span>{post.post_date}</span>}
+            {post.keyword && <KeywordBadge>{post.keyword}</KeywordBadge>}
+          </MetaRow>
         </UserInfo>
       </CardHeader>
-      <PostText>{post.text}</PostText>
-      <LinkRow href={post.permalink} target="_blank" rel="noopener noreferrer">
-        查看原文 →
-      </LinkRow>
+      <PostText>{post.content}</PostText>
+      <BottomRow>
+        <StatsRow>
+          <StatItem><span>❤️</span> {formatNumber(post.likes)}</StatItem>
+          <StatItem><span>💬</span> {formatNumber(post.comments)}</StatItem>
+          <StatItem><span>🔁</span> {formatNumber(post.reposts)}</StatItem>
+        </StatsRow>
+        <LinkButton href={post.permalink} target="_blank" rel="noopener noreferrer">
+          查看原文 →
+        </LinkButton>
+      </BottomRow>
     </CardWrapper>
   );
 };

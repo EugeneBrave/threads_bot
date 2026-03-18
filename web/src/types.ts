@@ -1,6 +1,12 @@
 export interface Post {
-  text: string;
   permalink: string;
+  username: string;
+  post_date: string;
+  content: string;
+  likes: number;
+  comments: number;
+  reposts: number;
+  shares: number;
   keyword?: string;
 }
 
