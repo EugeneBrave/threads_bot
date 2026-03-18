@@ -44,8 +44,9 @@ If you are asked to make changes to this repository, follow these rules carefull
 ### Pre-commit Hook
 The project uses a custom hook in `.githooks/pre-commit`. It runs:
 1. `pytest` (Backend tests)
-2. `tsc` (TypeScript type check in `web/`)
-3. `ai_code_review.py` (Gemini-powered code review)
+2. `vitest` (Frontend unit tests in `web/`)
+3. `tsc` (TypeScript type check in `web/`)
+4. `ai_code_review.py` (Gemini-powered code review)
 
 **Agent Task:** If the user mentions commit issues, ensure they have run:
 ```bash

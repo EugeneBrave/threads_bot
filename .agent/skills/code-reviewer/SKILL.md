@@ -16,10 +16,11 @@ It covers both **Python backend** code and the **React/TypeScript/styled-compone
 
 ## What Gets Checked
 
-### Pre-commit Hook (3 stages)
+### Pre-commit Hook (4 stages)
 1. **pytest** — Python unit tests in `tests/`
-2. **TypeScript type-check** — Runs `tsc --noEmit` in `web/` to catch type errors
-3. **AI Code Review** — Sends the staged diff to Gemini, which checks for:
+2. **vitest** — Vitest unit tests in `web/` (**New!**)
+3. **TypeScript type-check** — Runs `tsc --noEmit` in `web/` to catch type errors
+4. **AI Code Review** — Sends the staged diff to Gemini, which checks for:
    - Hardcoded secrets / API keys
    - Syntax errors, broken logic
    - Missing tests for new components
@@ -44,4 +45,4 @@ To instruct the user on how to enable this hook locally so it runs every time th
 ```bash
 git config core.hooksPath .githooks
 ```
-If the commit fails due to the hook, the hook will output the errors to the terminal, blocking the commit until the code is fixed and passes all three checks.
+If the commit fails due to the hook, the hook will output the errors to the terminal, blocking the commit until the code is fixed and passes all four checks.

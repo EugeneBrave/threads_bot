@@ -158,11 +158,12 @@ KEYWORDS = ["球鞋推薦", "美式復古", "健身菜單"]
 
 ## Pre-commit Hook (自動化程式碼檢查)
 
-專案內建 Git pre-commit hook，每次執行 `git commit` 時會自動進行三道檢查：
+專案內建 Git pre-commit hook，每次執行 `git commit` 時會自動進行四道檢查：
 
-1. **pytest** — 執行 Python 單元測試
-2. **TypeScript type-check** — 對 `web/` 前端執行 `tsc --noEmit` 型別檢查
-3. **AI Code Review** — 透過 Gemini AI 審查你的程式碼變更，檢查是否有安全疑慮或明顯錯誤
+1. **pytest** — 執行 Python 單元測試 (Backend)
+2. **vitest** — 執行前端單元測試 (Web Frontend - **New!**)
+3. **TypeScript type-check** — 對 `web/` 前端執行 `tsc --noEmit` 型別檢查
+4. **AI Code Review** — 透過 Gemini AI 審查你的程式碼變更，檢查是否有安全疑慮或明顯錯誤
 
 ### 啟用方式
 Clone 專案後，在根目錄執行一次以下指令即可永久啟用：

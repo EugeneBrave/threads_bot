@@ -1,5 +1,5 @@
 #!/bin/bash
-# Pre-commit hook: Run pytest, TypeScript check, and AI code review
+# Pre-commit hook: Run pytest, vitest, TypeScript check, and AI code review
 
 echo "Running pre-commit checks..."
 
@@ -12,7 +12,19 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# 2. Run TypeScript type-check on web/ (if node_modules exist)
+# 2. Run Web Frontend unit tests (if node_modules exist)
+if [ -d "web/node_modules" ]; then
+    echo "=> Running vitest (web/)..."
+    cd web && npm run test -- --run && cd ..
+    if [ $? -ne 0 ]; then
+        echo "❌ vitest failed. Please fix failing tests before committing."
+        exit 1
+    fi
+else
+    echo "=> Skipping vitest (web/node_modules not found)."
+fi
+
+# 3. Run TypeScript type-check on web/ (if node_modules exist)
 if [ -d "web/node_modules" ]; then
     echo "=> Running TypeScript type-check (web/)..."
     cd web && npx tsc --noEmit && cd ..
@@ -21,10 +33,10 @@ if [ -d "web/node_modules" ]; then
         exit 1
     fi
 else
-    echo "=> Skipping TypeScript check (web/node_modules not found, run 'cd web && npm install')."
+    echo "=> Skipping TypeScript check (web/not found)."
 fi
 
-# 3. Run AI code review (only if GEMINI_API_KEY is present)
+# 4. Run AI code review (only if GEMINI_API_KEY is present)
 if [ -n "$GEMINI_API_KEY" ]; then
     echo "=> Running AI Code Review..."
     python scripts/ai_code_review.py
