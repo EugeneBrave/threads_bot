@@ -30,11 +30,16 @@ def perform_review(diff: str) -> bool:
     
     prompt = f"""
     You are an expert, strict, but pragmatic AI code reviewer.
+    This project contains both Python backend code and a React/TypeScript/styled-components frontend (in web/).
     Review the following git diff for a commit.
+    
     Look out for:
     1. Hardcoded API keys, passwords, or secrets (CRITICAL).
     2. Obvious syntax errors, infinite loops, or completely broken logic.
     3. Missing tests if a major visual/logic component was added.
+    4. TypeScript type errors or unsafe `any` casts that bypass type safety.
+    5. React anti-patterns: missing keys in lists, direct state mutation, memory leaks from missing cleanup in useEffect.
+    6. styled-components issues: using inline styles where a styled component should be used, or inconsistent theming.
     
     If the code looks acceptable and safe to merge, reply ONLY with the word "PASS".
     If there are critical issues, reply with "FAIL" on the first line, followed by a brief list of the critical issues found.

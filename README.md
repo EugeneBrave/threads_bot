@@ -6,13 +6,15 @@
 ## 核心功能
 - **自動化網頁爬蟲**：無須申請嚴格的 Meta 官方 API 存取權限，直接使用 Playwright 模擬真實使用者於背景抓取每日最熱門公開貼文。
 - **自訂關鍵字搜尋**：支援透過 Python 設定多組想追蹤的關鍵字（預設每組關鍵字各自選取 5 篇熱點文章）。
-- **AI 智能摘要 (New!)**：使用 Google Gemini-3-flash-preview 模型，能自動過濾無關雜訊、總結今日時尚趨勢，並整理出精美的介紹文案。
+- **AI 智能摘要**：使用 Google Gemini 2.5 Flash 模型，能自動過濾無關雜訊、總結今日時尚趨勢，並整理出精美的介紹文案。
 - **每日雲端定時推播**：支援透過 GitHub Actions 每天早上定時在雲端自動執行，不再需要開啟個人電腦，直接將精華摘要發送到 Telegram！
+- **Web 瀏覽頁面 (New!)**：內建 React + TypeScript 前端，以類似 Threads 的排版展示每日精選貼文，自動部署至 GitHub Pages，隨時可線上瀏覽。
 
 ---
 
 ## 系統需求
-- Python 3.10 或更新版本
+- Python 3.13 或更新版本
+- Node.js 22+（僅 Web 前端開發時需要）
 - 一個有效的 Telegram Bot Token (需從 Telegram 向 [@BotFather](https://t.me/botfather) 申請)
 - 你的 Telegram Chat ID (用來接收訊息的對象，可向 [@userinfobot](https://t.me/userinfobot) 查詢)
 
@@ -105,6 +107,36 @@ python main.py --now
 ```powershell
 python main.py
 ```
+
+---
+
+## Web 瀏覽頁面
+
+專案內建一個以 **React + Redux + TypeScript + styled-components** 打造的前端網頁，部署於 GitHub Pages 上，以類似 Threads 的深色介面呈現每日精選貼文。
+
+### 技術架構
+| 項目 | 技術 |
+|---|---|
+| 框架 | React 19 + TypeScript |
+| 狀態管理 | Redux Toolkit |
+| 樣式 | styled-components |
+| 建置工具 | Vite 6 |
+| 部署 | GitHub Pages (自動) |
+
+### 本機開發
+```bash
+cd web
+npm install
+npm run dev
+```
+
+### 資料來源
+每日 Bot 執行後會自動將爬取結果寫入 `web/public/data/posts.json`（保留最近 5 天），並由 GitHub Actions 自動 commit 回 repo 觸發前端重新部署。
+
+### GitHub Pages 部署
+1. 到 repo **Settings → Pages → Source** 選擇 **GitHub Actions**
+2. 推送程式碼後，`.github/workflows/deploy_web.yml` 會自動建置並部署
+3. 部署完成後可於 `https://<username>.github.io/threads_bot/` 瀏覽
 
 ---
 
