@@ -149,12 +149,28 @@ npm run dev
 KEYWORDS = ["球鞋推薦", "美式復古", "健身菜單"]
 ```
 
+## Pre-commit Hook (自動化程式碼檢查)
+
+專案內建 Git pre-commit hook，每次執行 `git commit` 時會自動進行三道檢查：
+
+1. **pytest** — 執行 Python 單元測試
+2. **TypeScript type-check** — 對 `web/` 前端執行 `tsc --noEmit` 型別檢查
+3. **AI Code Review** — 透過 Gemini AI 審查你的程式碼變更，檢查是否有安全疑慮或明顯錯誤
+
+### 啟用方式
+Clone 專案後，在根目錄執行一次以下指令即可永久啟用：
+```bash
+git config core.hooksPath .githooks
+```
+
+> ⚠️ **注意**：AI Code Review 需要在環境中設定 `GEMINI_API_KEY` 才會執行，否則會自動跳過該步驟。
+
+---
+
 ## 常見問題 (FAQ)
 
 **Q: 為什麼在 Windows 執行結束時，終端機偶爾會閃過一行 `RuntimeError: Event loop is closed` 警告？**  
 A: 這是一個 Python `asyncio` 搭配 Playwright 在 Windows 環境下結束資源回收時常見的無害訊息。完全不會影響程式的運行、爬取或訊息推播。目前的程式碼已包含可以隱藏此錯誤的補丁。
 
 **Q: Threads 的介面改版導致爬蟲抓不到資料了？**  
-A: Threads 網頁結構更新時，爬蟲 (scraper.py) 可能無法正確選取到 HTML 元素。若發生此事，只需由開發者開啟 `scraper.py`，更新 `valid_items = await page.evaluate(...)` 中對應的 CSS 選取器 (Selector) 即可。 
-
-#test
+A: Threads 網頁結構更新時，爬蟲 (scraper.py) 可能無法正確選取到 HTML 元素。若發生此事，只需由開發者開啟 `scraper.py`，更新 `valid_items = await page.evaluate(...)` 中對應的 CSS 選取器 (Selector) 即可。
