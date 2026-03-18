@@ -19,8 +19,14 @@ const initialState: PostsState = {
   error: null,
 };
 
+// In production, fetch posts.json directly from the GitHub repo (no rebuild needed).
+// In development, fetch from the local public/ directory.
+const POSTS_URL = import.meta.env.PROD
+  ? 'https://raw.githubusercontent.com/EugeneBrave/threads_bot/main/web/public/data/posts.json'
+  : `${import.meta.env.BASE_URL}data/posts.json`;
+
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await fetch(`${import.meta.env.BASE_URL}data/posts.json`);
+  const response = await fetch(POSTS_URL);
   if (!response.ok) throw new Error('Failed to fetch posts data');
   const data: PostsData = await response.json();
   return data;

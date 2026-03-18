@@ -131,11 +131,18 @@ npm run dev
 ```
 
 ### 資料來源
-每日 Bot 執行後會自動將爬取結果寫入 `web/public/data/posts.json`（保留最近 5 天），並由 GitHub Actions 自動 commit 回 repo 觸發前端重新部署。
+每日 Bot 執行後會自動將爬取結果寫入 `web/public/data/posts.json`（保留最近 5 天），並由 GitHub Actions 自動 commit 回 repo。
+
+前端在**生產環境**會直接從 GitHub raw URL 讀取最新資料，因此**每日資料更新不需要重新 build 或部署網站**：
+```
+https://raw.githubusercontent.com/EugeneBrave/threads_bot/main/web/public/data/posts.json
+```
+
+> 💡 如果你 fork 了此專案，請修改 `web/src/features/posts/postsSlice.ts` 中的 `POSTS_URL` 變數，將 GitHub 使用者名稱和 repo 名稱改為你自己的。
 
 ### GitHub Pages 部署
 1. 到 repo **Settings → Pages → Source** 選擇 **GitHub Actions**
-2. 推送程式碼後，`.github/workflows/deploy_web.yml` 會自動建置並部署
+2. 推送程式碼後，`.github/workflows/deploy_web.yml` 會自動建置並部署（僅在 `web/` 原始碼變更時觸發）
 3. 部署完成後可於 `https://<username>.github.io/threads_bot/` 瀏覽
 
 ---
