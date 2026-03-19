@@ -1,5 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { AiSummaryData, AiHighlight } from '../types';
+
+interface AiSummaryProps {
+  summary: string | AiSummaryData | null | undefined;
+}
 
 const SummaryWrapper = styled.div`
   max-width: 600px;
@@ -48,20 +53,41 @@ const SummaryContent = styled.div`
   }
 `;
 
-interface AiSummaryProps {
-  summary: string;
-}
+const Divider = styled.hr`
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 16px 0;
+`;
+
+const HighlightSectionTitle = styled.div`
+  font-size: 15px;
+  font-weight: 600;
+  color: #e0d4fc;
+  margin-bottom: 12px;
+`;
+
+const HighlightItem = styled.div`
+  margin-bottom: 16px;
+  
+  p {
+    margin: 0 0 6px;
+  }
+
+  a {
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 2px;
+  }
+`;
 
 /**
- * Parse the AI summary text:
+ * Parse the AI summary text (Legacy support for string format):
  * 1. Convert [text](url) markdown links into <a> tags
  * 2. Convert bare URLs (https://...) into <a> tags with shortened labels
  * 3. Convert *text* into <strong> tags
  * 4. Convert \n into <br>
  */
 function parseAiSummary(text: string): React.ReactNode[] {
-  // Step 1: Handle markdown-style links [text](url) and bare URLs and *bold*
-  // Pattern priority: markdown links first, then bare URLs, then bold
   const combinedRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s)]+)|\*([^*]+)\*/g;
 
   const nodes: React.ReactNode[] = [];
@@ -70,7 +96,6 @@ function parseAiSummary(text: string): React.ReactNode[] {
   let key = 0;
 
   while ((match = combinedRegex.exec(text)) !== null) {
-    // Add text before the match
     if (match.index > lastIndex) {
       const before = text.slice(lastIndex, match.index);
       nodes.push(...splitNewlines(before, key));
@@ -78,14 +103,12 @@ function parseAiSummary(text: string): React.ReactNode[] {
     }
 
     if (match[1] && match[2]) {
-      // Markdown link: [text](url)
       nodes.push(
         <a key={`link-${key++}`} href={match[2]} target="_blank" rel="noopener noreferrer">
           {match[1]}
         </a>
       );
     } else if (match[3]) {
-      // Bare URL
       const url = match[3];
       const label = shortenUrl(url);
       nodes.push(
@@ -94,14 +117,12 @@ function parseAiSummary(text: string): React.ReactNode[] {
         </a>
       );
     } else if (match[4]) {
-      // Bold text: *text*
       nodes.push(<strong key={`bold-${key++}`}>{match[4]}</strong>);
     }
 
     lastIndex = match.index + match[0].length;
   }
 
-  // Add remaining text
   if (lastIndex < text.length) {
     nodes.push(...splitNewlines(text.slice(lastIndex), key));
   }
@@ -123,7 +144,6 @@ function shortenUrl(url: string): string {
   try {
     const u = new URL(url);
     const path = u.pathname.split('/');
-    // Show @username for threads.com
     const user = path.find((p) => p.startsWith('@'));
     if (user) return `🔗 ${user}`;
     return '🔗 查看連結';
@@ -133,11 +153,47 @@ function shortenUrl(url: string): string {
 }
 
 const AiSummary = ({ summary }: AiSummaryProps) => {
+  if (!summary) return null;
+
+  // Legacy support for string format
+  if (typeof summary === 'string') {
+    return (
+      <SummaryWrapper>
+        <SummaryBox>
+          <SummaryTitle>✨ AI 今日穿搭趨勢速報</SummaryTitle>
+          <SummaryContent>{parseAiSummary(summary)}</SummaryContent>
+        </SummaryBox>
+      </SummaryWrapper>
+    );
+  }
+
+  // Structured format (AiSummaryData)
+  const data = summary as AiSummaryData;
+  
   return (
     <SummaryWrapper>
       <SummaryBox>
-        <SummaryTitle>✨ AI 今日穿搭趨勢速報</SummaryTitle>
-        <SummaryContent>{parseAiSummary(summary)}</SummaryContent>
+        <SummaryTitle>✨ {data.title || "AI 今日穿搭趨勢速報"}</SummaryTitle>
+        <SummaryContent>
+          {data.intro && <p style={{ margin: '0 0 12px' }}>{data.intro}</p>}
+          
+          {data.highlights && Array.isArray(data.highlights) && data.highlights.length > 0 && (
+            <>
+              <Divider />
+              <HighlightSectionTitle>精華貼文精選</HighlightSectionTitle>
+              {data.highlights.map((item: AiHighlight, index: number) => (
+                <HighlightItem key={index}>
+                  <p>
+                    <strong>{item.title}：</strong> {item.description}
+                  </p>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    點我觀看原文
+                  </a>
+                </HighlightItem>
+              ))}
+            </>
+          )}
+        </SummaryContent>
       </SummaryBox>
     </SummaryWrapper>
   );

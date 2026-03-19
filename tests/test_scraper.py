@@ -9,14 +9,15 @@ def mock_playwright(mocker):
     mock_context = AsyncMock()
     mock_page = AsyncMock()
     
+    # Mock async context manager for playwright
     mock_pw.return_value.__aenter__.return_value.chromium.launch.return_value = mock_browser
     mock_browser.new_context.return_value = mock_context
     mock_context.new_page.return_value = mock_page
     
     # Mock page.evaluate to return some dummy posts
     mock_page.evaluate.return_value = [
-        {"text": "Sample fashion post 1", "permalink": "https://www.threads.net/t/abcdef1"},
-        {"text": "Awesome vintage outfit", "permalink": "https://www.threads.net/t/abcdef2"}
+        {"content": "Sample fashion post 1", "permalink": "https://www.threads.net/t/abcdef1", "username": "user1"},
+        {"content": "Awesome vintage outfit", "permalink": "https://www.threads.net/t/abcdef2", "username": "user2"}
     ]
     
     return mock_pw, mock_page
@@ -25,11 +26,12 @@ def mock_playwright(mocker):
 async def test_get_top_daily_posts_success(mock_playwright):
     _, mock_page = mock_playwright
     
-    posts = await get_top_daily_posts()
+    # Pass empty exclude list
+    posts = await get_top_daily_posts(exclude_permalinks=[])
     
     # It should have crawled the 3 keywords in KEYWORDS configuration
-    assert len(posts) == 2 # 3 keywords, but mock returns same permalinks so deduplication reduces to 2
-    assert "Sample fashion post 1" in posts[0]['text']
+    assert len(posts) == 2 # mock returns same permalinks across keywords, so deduplication
+    assert "Sample fashion post 1" in posts[0]['content']
     assert "https://www.threads.net/t/abcdef2" in posts[1]['permalink']
     assert mock_page.goto.call_count == 3
 

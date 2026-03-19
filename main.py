@@ -44,24 +44,30 @@ async def async_job():
     """
     logger.info("Starting the daily Threads scraper job...")
     
+    # 0. Get existing permalinks to avoid duplicates
+    exclude_urls = get_existing_permalinks()
+    logger.info(f"Loaded {len(exclude_urls)} existing permalinks to exclude.")
+    
     # 1. Fetch top posts using async Playwright
-    posts = await get_top_daily_posts()
+    posts = await get_top_daily_posts(exclude_permalinks=exclude_urls)
     
     if not posts:
-        logger.info("No posts found today. Skipping Telegram message.")
+        logger.info("No new posts found today. Skipping Telegram message.")
         return
-
-    logger.info(f"Found {len(posts)} posts. Passing to AI Processor...")
+    
+    logger.info(f"Found {len(posts)} new posts. Passing to AI Processor...")
     
     # 2. Process posts using AI (Gemini / Claude)
-    ai_message = await generate_digest(posts)
+    # ai_summary is now a dict
+    ai_summary = await generate_digest(posts)
     
     # 3. Save posts to JSON for the web viewer
-    save_posts_to_json(posts, ai_message)
+    save_posts_to_json(posts, ai_summary)
     
-    # 4. Send via Telegram
+    # 4. Format for Telegram and send
+    telegram_text = format_summary_for_telegram(ai_summary)
     try:
-        success = await send_daily_digest(ai_message)
+        success = await send_daily_digest(telegram_text)
     except Exception as e:
         logger.error(f"Error running the async Telegram function: {e}")
         success = False
@@ -71,7 +77,48 @@ async def async_job():
     else:
         logger.error("Daily job finished with errors - message not sent.")
 
-def save_posts_to_json(posts: list, ai_summary: str):
+def get_existing_permalinks() -> list[str]:
+    """Extract all permalinks from existing web/public/data/posts.json."""
+    json_path = os.path.join(os.path.dirname(__file__), "web", "public", "data", "posts.json")
+    if not os.path.exists(json_path):
+        return []
+    
+    try:
+        with open(json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            permalinks = []
+            for date_data in data.values():
+                for post in date_data.get("posts", []):
+                    if isinstance(post, dict) and "permalink" in post:
+                        permalinks.append(post["permalink"])
+            return permalinks
+    except Exception as e:
+        logger.warning(f"Failed to extract existing permalinks: {e}")
+        return []
+
+def format_summary_for_telegram(summary: dict) -> str:
+    """Convert the structured JSON summary back to a markdown string for Telegram."""
+    # Use simple bold for the main title
+    text = f"*{summary.get('title', '今日 Threads 穿搭熱門追蹤')}*\n\n"
+    text += f"{summary.get('intro', '')}\n\n"
+    text += "---\n"
+    text += "【精華貼文精選】\n\n"
+    
+    for item in summary.get('highlights', []):
+        title = item.get('title', '').strip()
+        desc = item.get('description', '').strip()
+        url = item.get('url', '').strip()
+        
+        # Avoid nested stars, use emoji as bullet
+        text += f"📍 {title}\n"
+        if desc:
+            text += f"{desc}\n"
+        # Ensure the link is on its own line if it's long, or just ensure no trailing spaces
+        text += f"[點我觀看原文]({url})\n\n"
+    
+    return text.strip()
+
+def save_posts_to_json(posts: list, ai_summary: dict):
     """Save scraped posts and AI summary to web/public/data/posts.json"""
     from config import KEYWORDS
     

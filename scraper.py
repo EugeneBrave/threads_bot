@@ -5,6 +5,17 @@ from config import KEYWORDS, POSTS_PER_KEYWORD
 
 logger = logging.getLogger(__name__)
 
+def normalize_url(url: str) -> str:
+    """Normalize Threads URL by stripping /media/ and trailing slashes."""
+    if not url:
+        return ""
+    # Strip trailing slash
+    url = url.rstrip('/')
+    # Strip /media suffix
+    if url.endswith('/media'):
+        url = url[:-6]
+    return url
+
 async def fetch_posts_for_keyword(page, keyword, limit):
     """
     Search Threads for a given keyword and extract the posts.
@@ -18,10 +29,7 @@ async def fetch_posts_for_keyword(page, keyword, limit):
         
     logger.info("Goto finished. Waiting for selector...")
     
-    # Wait for the post elements to load. We look for the main container or links
-    # Threads uses dynamic classes, but links to posts usually have '/t/' in the href
     try:
-        # Wait for the first post to appear
         await page.wait_for_selector("a[href*='/post/']", timeout=15000)
         logger.info("Found posts selector.")
     except Exception as e:
@@ -31,11 +39,11 @@ async def fetch_posts_for_keyword(page, keyword, limit):
         return []
 
     logger.info("Starting scroll...")
-    # Scroll down a few times to load more posts if limit is high
-    for i in range(3):
+    # Scroll more times to find newer content
+    for i in range(10): 
         logger.info(f"Scroll {i}")
         await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-        await asyncio.sleep(2) # Give it time to load
+        await asyncio.sleep(2)
 
     logger.info("Extracting data via evaluate...")
     
@@ -57,13 +65,9 @@ async def fetch_posts_for_keyword(page, keyword, limit):
             
             if (!rawText || rawText.length <= 5 || results.some(r => r.permalink === url)) return;
             
-            // Parse the raw text into structured fields
             const lines = rawText.trim().split('\\n').map(l => l.trim()).filter(l => l.length > 0);
-            
-            // First line is usually the username
             const username = lines.length > 0 ? lines[0] : '';
             
-            // Find date line (pattern: YYYY-M-D or YYYY/M/D or contains 天 like "6天")
             let postDate = '';
             let dateLineIndex = -1;
             for (let i = 1; i < lines.length; i++) {
@@ -79,8 +83,6 @@ async def fetch_posts_for_keyword(page, keyword, limit):
                 }
             }
             
-            // Extract engagement numbers from the end (likes, comments, reposts, shares)
-            // They appear as the last 3-4 lines, each being a number (possibly with commas or 萬)
             const numPattern = /^[\\d,.]+\\s*萬?$/;
             let engagementStart = lines.length;
             for (let i = lines.length - 1; i >= 0; i--) {
@@ -104,8 +106,6 @@ async def fetch_posts_for_keyword(page, keyword, limit):
             const reposts = engagementLines.length > 2 ? parseNum(engagementLines[2]) : 0;
             const shares = engagementLines.length > 3 ? parseNum(engagementLines[3]) : 0;
             
-            // Content is everything between header lines and engagement numbers
-            // Skip: username, possible tag line before date, date, "翻譯" noise
             const contentStart = dateLineIndex >= 0 ? dateLineIndex + 1 : (lines.length > 1 ? 1 : 0);
             const contentLines = lines.slice(contentStart, engagementStart)
                 .filter(l => l !== '翻譯' && l !== '已翻譯' && l !== '顯示較少');
@@ -127,11 +127,17 @@ async def fetch_posts_for_keyword(page, keyword, limit):
     }''')
     
     logger.info(f"Evaluated successfully. Found {len(valid_items)} items.")
-    return valid_items[:limit]
+    return valid_items
 
-async def get_top_daily_posts(keywords: list = KEYWORDS, posts_per_keyword: int = POSTS_PER_KEYWORD):
+async def get_top_daily_posts(keywords: list = KEYWORDS, posts_per_keyword: int = POSTS_PER_KEYWORD, exclude_permalinks: list = None):
     all_posts = []
+    # Initialize seen_permalinks with normalized exclusions
     seen_permalinks = set()
+    if exclude_permalinks:
+        for url in exclude_permalinks:
+            seen_permalinks.add(normalize_url(url))
+            
+    total_excluded_initial = len(seen_permalinks)
     
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
@@ -145,17 +151,28 @@ async def get_top_daily_posts(keywords: list = KEYWORDS, posts_per_keyword: int 
         for keyword in keywords:
             logger.info(f"Scraping Threads for keyword: {keyword}")
             try:
-                posts = await fetch_posts_for_keyword(page, keyword, limit=posts_per_keyword)
+                # Get more than the limit to allow for filtering duplicates
+                posts = await fetch_posts_for_keyword(page, keyword, limit=posts_per_keyword * 10)
+                count_for_this_keyword = 0
                 for post in posts:
-                    if post["permalink"] not in seen_permalinks:
-                        seen_permalinks.add(post["permalink"])
+                    if count_for_this_keyword >= posts_per_keyword:
+                        break
+                    
+                    norm_url = normalize_url(post["permalink"])
+                    if norm_url not in seen_permalinks:
+                        seen_permalinks.add(norm_url)
                         post["keyword"] = keyword
                         all_posts.append(post)
+                        count_for_this_keyword += 1
+                
+                logger.info(f"Added {count_for_this_keyword} new posts for keyword: {keyword}")
             except Exception as e:
                 logger.error(f"Error scraping {keyword}: {e}")
         
         await browser.close()
-        
+    
+    new_posts_count = len(all_posts)
+    logger.info(f"Scraping finished. Total new posts: {new_posts_count}. (Exclusions active: {len(seen_permalinks)})")
     return all_posts
 
 if __name__ == "__main__":

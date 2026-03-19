@@ -15,7 +15,7 @@ The "Threads Bot" is a Python-based web scraper, Telegram messenger, and a React
 ## 🛠️ Tech Stack & Key Files
 When asked to modify the project, refer to these core files:
 1. `scraper.py`: Handles web scraping. **Skill:** Uses async `playwright`. Extracts **structured data** (username, date, content, likes, comments, reposts).
-2. `ai_processor.py`: Handles LLM integration. **Skill:** Uses `google-generativeai`. **Model:** `gemini-2.5-flash`. It processes structured JSON and formats a markdown summary.
+2. `ai_processor.py`: Handles LLM integration. **Skill:** Uses `google-generativeai`. **Model:** `gemini-3-flash-preview`. It processes structured JSON and formats a markdown summary.
 3. `web/`: React frontend. **Skill:** React 19, TypeScript, Redux Toolkit, and `styled-components`.
    - `web/src/features/posts/postsSlice.ts`: Fetches `posts.json` directly from **GitHub Raw URL** in production to avoid rebuilds.
 4. `main.py`: The orchestrator. Saves data to `web/public/data/posts.json`.
@@ -39,6 +39,9 @@ If you are asked to make changes to this repository, follow these rules carefull
 ### 3. Async & Windows
 - **Proactor Patch:** Keep the pipe transport patch in `main.py` for Windows compatibility.
 - Ensure all IO-bound tasks remain `async`.
+ 
++### 4. Model Version Persistence
++- **No Unauthorized Model Changes:** NEVER change the AI model version (e.g., `gemini-3-flash-preview`) in `ai_processor.py` or any other part of the codebase without explicit permission from the USER.
 
 ## 🛡️ Development & Code Quality
 ### Pre-commit Hook

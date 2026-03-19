@@ -10,9 +10,21 @@ export interface Post {
   keyword?: string;
 }
 
+export interface AiHighlight {
+  title: string;
+  description: string;
+  url: string;
+}
+
+export interface AiSummaryData {
+  title: string;
+  intro: string;
+  highlights: AiHighlight[];
+}
+
 export interface DayData {
   keyword_tags: string[];
-  ai_summary: string;
+  ai_summary: string | AiSummaryData;
   posts: Post[];
 }
 

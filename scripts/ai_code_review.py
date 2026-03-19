@@ -4,11 +4,8 @@ import sys
 import os
 from google import genai
 
-# Require GEMINI API KEY to perform the review
-api_key = os.environ.get("GEMINI_API_KEY")
-if not api_key:
-    print("⚠️ GEMINI_API_KEY environment variable not set. Skipping AI Code Review.")
-    sys.exit(0)
+# Model to use for review
+REVIEW_MODEL = 'gemini-3-flash-preview'
 
 def get_staged_diff():
     """Retrieve the unified diff of currently staged files."""
@@ -24,7 +21,7 @@ def get_staged_diff():
         print(f"Failed to get git diff: {e}")
         sys.exit(0)
 
-def perform_review(diff: str) -> bool:
+def perform_review(diff: str, api_key: str) -> bool:
     """Send diff to Gemini and return True if it passes, False if it fails."""
     client = genai.Client(api_key=api_key)
     
@@ -51,37 +48,48 @@ def perform_review(diff: str) -> bool:
     """
     
     try:
-        print("🤖 Prompting AI for Code Review...")
+        print("[AI] Prompting Gemini for Code Review...")
         response = client.models.generate_content(
-            model='gemini-2.5-flash',
+            model=REVIEW_MODEL,
             contents=prompt,
         )
         
         reply = response.text.strip()
         if reply.startswith("PASS"):
-            print("✅ AI Code Review Passed! Clean diff.")
+            print("[AI] Code Review Passed! Clean diff.")
             return True
         else:
-            print("\n❌ AI Code Review FAILED. Please fix the following issues before committing:")
+            print("\n[AI] Code Review FAILED. Please fix the following issues before committing:")
             print("-" * 50)
             print(reply)
             print("-" * 50)
             return False
             
     except Exception as e:
-        print(f"⚠️ AI Code Review encountered an API error: {e}. Slipping through for now...")
+        print(f"[AI] Code Review encountered an API error: {e}. Skipping for now...")
         return True
 
 def main():
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("[AI] GEMINI_API_KEY not set. Skipping AI Code Review.")
+        sys.exit(0)
+
     diff = get_staged_diff()
     if not diff:
-        print("No staged changes found to review.")
+        print("[AI] No staged changes found to review.")
         sys.exit(0)
         
-    passed = perform_review(diff)
+    passed = perform_review(diff, api_key)
     if not passed:
-        # Exit with error code to prevent commit
         sys.exit(1)
 
 if __name__ == "__main__":
+    # Ensure UTF-8 for Windows if possible, but emojis are removed anyway
+    try:
+        if sys.platform == "win32":
+            import io
+            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    except Exception:
+        pass
     main()
