@@ -8,7 +8,7 @@
 - **自訂關鍵字搜尋**：支援透過 Python 設定多組想追蹤的關鍵字（預設每組關鍵字各自選取 5 篇熱點文章）。
 - **AI 智能摘要**：使用 Google Gemini 2.5 Flash 模型，能自動過濾無關雜訊、總結今日時尚趨勢，並整理出精美的介紹文案。
 - **每日雲端定時推播**：支援透過 GitHub Actions 每天早上定時在雲端自動執行，不再需要開啟個人電腦，直接將精華摘要發送到 Telegram！
-- **Web 瀏覽頁面 (New!)**：內建 React + TypeScript 前端，以類似 Threads 的排版展示每日精選貼文，自動部署至 GitHub Pages，隨時可線上瀏覽。
+- **Web 瀏覽頁面 (Live!)**：內建 React + TypeScript 前端，以類似 Threads 的排版展示每日精選貼文。**👉 [立即瀏覽](https://eugenebrave.github.io/threads_bot/)**
 
 ---
 
@@ -114,6 +114,8 @@ python main.py
 
 專案內建一個以 **React + Redux + TypeScript + styled-components** 打造的前端網頁，部署於 GitHub Pages 上，以類似 Threads 的深色介面呈現每日精選貼文。
 
+**🔗 線上預覽：[https://eugenebrave.github.io/threads_bot/](https://eugenebrave.github.io/threads_bot/)**
+
 ### 技術架構
 | 項目 | 技術 |
 |---|---|
@@ -143,7 +145,7 @@ https://raw.githubusercontent.com/EugeneBrave/threads_bot/main/web/public/data/p
 ### GitHub Pages 部署
 1. 到 repo **Settings → Pages → Source** 選擇 **GitHub Actions**
 2. 推送程式碼後，`.github/workflows/deploy_web.yml` 會自動建置並部署（僅在 `web/` 原始碼變更時觸發）
-3. 部署完成後可於 `https://<username>.github.io/threads_bot/` 瀏覽
+3. 部署完成後可於 [https://eugenebrave.github.io/threads_bot/](https://eugenebrave.github.io/threads_bot/) 瀏覽
 
 ---
 
