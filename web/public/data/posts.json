@@ -1,4 +1,67 @@
 {
+  "2026-04-04": {
+    "keyword_tags": [
+      "男生穿搭",
+      "美式復古",
+      "阿美咔嘰"
+    ],
+    "ai_summary": {
+      "title": "今日 Threads 穿搭與復古文化趨勢報告",
+      "intro": "今日 Threads 的穿搭討論聚焦於「阿美咔嘰（Amekaji）」與「軍事復古風」，特別受到影視作品與高階復刻皮衣的驅動。趨勢顯示使用者除了追求單品的美感外，更在意單品的材質細節（如鹿皮、羊毛）與其背後的歷史考究。此外，穿搭照在社群互動中亦扮演了情感交流的重要角色，具備日常感的報備式穿搭展現出極高的社交感染力。",
+      "highlights": [
+        {
+          "title": "日常報備感穿搭的社交熱潮",
+          "description": "貼文展現了穿搭照作為社群報備與互動的工具，日常感與生活化的搞怪姿勢相較於專業攝影，更能拉近距離並在 Threads 上獲得極高共鳴。",
+          "url": "https://www.threads.com/@22.lyx/post/DMb-QZLPAPg"
+        },
+        {
+          "title": "軍事飛行風格復刻再現",
+          "description": "受影劇《空戰群英》啟發，阿美咔嘰社群重燃對軍事風格的熱情，貼文展示了經典飛行員造型的現代復刻穿法。",
+          "url": "https://www.threads.com/@ma_mao_mao/post/DU-i47Jj-8z"
+        },
+        {
+          "title": "高階皮衣工藝：Grizzly Jacket 熊夾克",
+          "description": "針對專業復古愛好者的分享，介紹全球限量的 Y2 Leather 鹿皮拼接羊毛熊夾克，體現了復古玩家對極致材質與歷史剪裁的追求。",
+          "url": "https://www.threads.com/@rebelle.et/post/DV-ujlzEvaX"
+        }
+      ]
+    },
+    "posts": [
+      {
+        "permalink": "https://www.threads.com/@22.lyx/post/DMb-QZLPAPg",
+        "username": "22.lyx",
+        "post_date": "2025-7-23",
+        "content": "說真的\n收到女生主動傳來日常穿搭照或是\n那種懟臉拍 奇怪姿勢的報備照\n真的會讓男生大暈😵‍💫超級可愛又搞怪\n完全沒抵抗力",
+        "likes": 22000,
+        "comments": 253,
+        "reposts": 1295,
+        "shares": 5602,
+        "keyword": "男生穿搭"
+      },
+      {
+        "permalink": "https://www.threads.com/@ma_mao_mao/post/DU-i47Jj-8z",
+        "username": "ma_mao_mao",
+        "post_date": "2026-2-20",
+        "content": "在飛24次就可以退伍了😂\n空戰群英超好看，復刻一下裡面的穿著",
+        "likes": 1242,
+        "comments": 125,
+        "reposts": 10,
+        "shares": 30,
+        "keyword": "阿美咔嘰"
+      },
+      {
+        "permalink": "https://www.threads.com/@rebelle.et/post/DV-ujlzEvaX",
+        "username": "rebelle.et",
+        "post_date": "2026-3-17",
+        "content": "😍😍😍\n今天是超美帥帥分享\nY2週年紀念熊夾克，全球只有100件❤️\n鹿皮！英國羊毛！手感超讚\n實際穿著起來也是非常舒適跟也很適合冬天穿\n完全不是只有穿帥而已🤣\n熊夾克：\n@y2leather_official\n謝謝老公的 #週年紀念禮物 非常愛😍",
+        "likes": 39,
+        "comments": 6,
+        "reposts": 3,
+        "shares": 0,
+        "keyword": "阿美咔嘰"
+      }
+    ]
+  },
   "2026-04-03": {
     "keyword_tags": [
       "男生穿搭",
@@ -590,53 +653,6 @@
         "comments": 160,
         "reposts": 2,
         "shares": 31,
-        "keyword": "阿美咔嘰"
-      }
-    ]
-  },
-  "2026-03-30": {
-    "keyword_tags": [
-      "男生穿搭",
-      "美式復古",
-      "阿美咔嘰"
-    ],
-    "ai_summary": {
-      "title": "今日 Threads 穿搭與復古美學趨勢摘要",
-      "intro": "今日 Threads 社群呈現出高度的「復古生活化」傾向。趨勢核心環繞在高品質美式經典男裝（Amekaji）的單品鑑賞，以及將穿搭美學融入復古空間的場域探索。玩家們不僅關注服裝本身的工藝與剪裁（如 Bryceland’s Type 1 外套），亦熱衷於尋找具備懷舊氛圍的咖啡廳作為個人風格展示的延伸場所。",
-      "highlights": [
-        {
-          "title": "深度美式復古：Bryceland’s Type 1 經典單寧外套鑑賞",
-          "description": "針對阿美咔嘰（Amekaji）愛好者的精確推薦，展示了來自 Bryceland’s 的 Type 1 外套，反映出 Threads 核心穿搭圈對於經典工裝廓形與品牌考究度的持續追求。",
-          "url": "https://www.threads.com/@zawa.archive/post/DR4gEM1EZN2"
-        },
-        {
-          "title": "穿搭場域探索：復古氛圍咖啡廳巡禮",
-          "description": "雖然重點在於餐飲，但貼文中強調了如「RanGerハス珈琲」等具備復古環境與店貓的空間。這類場域是 Threads 穿搭博主進行風格拍攝、營造「復古日常感」的重要背景，體現了穿搭與生活品質的結合。",
-          "url": "https://www.threads.com/@ooh.pei_/post/DQ88wLhEpIK"
-        }
-      ]
-    },
-    "posts": [
-      {
-        "permalink": "https://www.threads.com/@ooh.pei_/post/DQ88wLhEpIK",
-        "username": "ooh.pei_",
-        "post_date": "2025-11-12",
-        "content": "我去過ㄉ咖啡廳\n三民區\n和好珈啡店：安靜很適合坐一整天\n二木咖啡：食物cp值很高也適合讀書\nharmone：法式吐司好好吃🤤\n新興區\n二木咖啡·夜間部：高雄我最喜歡的咖啡廳！！\n鹿聊：有水餃！檸檬塔很好吃😋\nRanGerハス珈琲：店貓很可愛！店內環境很復古很好拍照！\n咖啡足矣：肉桂捲好吃！下次想再去試試其他品項\n住牙：店裡有狗狗 下次去我要點提拉米蘇\n續 咖啡：深夜咖 甜點cp很高 適合讀書\n苓雅區\n餘地：推 肉桂捲\n共生：有狗狗！一定要點肉桂捲\n遜物咖啡：有很多水果風味的咖啡 推梅子美式\n巴索托咖啡館：很多有特色的品項 可頌一定要點！！\n左營區\nHAUS COFFEE：離巨蛋近 適合聊天！\n胖尼咖啡：這裡的可頌第一名！要領號碼牌不然不一定能買到！！\n前金區\n二雄：推蛋沙拉三明治\n鼓山區\nALIEN All Day Lounge 金馬咖啡廳-Cafe & Shop：甜點很精緻 店裡環境很像美術館\n鹽埕區\nDo good coffee & dessert：店內環境很舒服很適合課間去那邊休息\n神諭咖啡 駁二店：店內沒有廁所 沒有吃過可朗芙的一定要試試看\n-\n求肉桂捲好吃的咖啡廳！",
-        "likes": 771,
-        "comments": 30,
-        "reposts": 189,
-        "shares": 732,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@zawa.archive/post/DR4gEM1EZN2",
-        "username": "zawa.archive",
-        "post_date": "2025-12-5",
-        "content": "不知道有沒有喜歡阿美咔嘰的玩家，這邊有件來自 bryceland’s 的 type 1 可以參考一下！\nzawa.archive",
-        "likes": 48,
-        "comments": 3,
-        "reposts": 2,
-        "shares": 0,
         "keyword": "阿美咔嘰"
       }
     ]
