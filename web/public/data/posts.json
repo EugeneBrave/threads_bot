@@ -1,4 +1,67 @@
 {
+  "2026-04-05": {
+    "keyword_tags": [
+      "男生穿搭",
+      "美式復古",
+      "阿美咔嘰"
+    ],
+    "ai_summary": {
+      "title": "今日 Threads 穿搭熱門趨勢：韓系極簡美學與穿搭文化思辨",
+      "intro": "今日 Threads 上的時尚討論呈現兩極化發展：一方聚焦於韓系男裝的『Clean Fit』極簡主義，強調透過剪裁、低飽和色彩與服裝質感建構出『不費力的時尚感』；另一方則引發了關於在地男性穿搭文化的熱烈辯論，指出氣候並非阻礙風格的主因。此外，美式復古風格在分眾市場（如小個子與大碼女裝）的搜尋需求依然強勁，顯示出復古元素正持續深入多元身材的穿搭場景中。",
+      "highlights": [
+        {
+          "title": "韓系男裝質感哲學：簡單即是考驗",
+          "description": "解析韓國男生如何運用 Tee、寬褲與襯衫等基本單品，透過微寬鬆版型與米、灰、卡其等大地色系，在簡單中穿出高質感。強調『越簡單的穿搭，越考驗服飾本身的品質』。",
+          "url": "https://www.threads.com/@sanshi.tw/post/DV5-IuHk0yo"
+        },
+        {
+          "title": "穿搭文化大哉問：氣候與美感的拉鋸",
+          "description": "一則針對在地男性穿搭現狀的辛辣觀察，引發數千網友共鳴。討論重點在於即便天氣轉冷，穿搭美感似乎仍未隨溫降提升，挑戰了『因為太熱才不穿搭』的傳統藉口。",
+          "url": "https://www.threads.com/@kongirl22/post/DEwqCcaTnkB"
+        },
+        {
+          "title": "分眾市場的美式復古需求",
+          "description": "針對小個子（150cm）與大碼女孩的需求，尋求美式復古風格單品（如五分褲、辣妹衫）的建議，反映出美式街頭元素在不同身形族群中的高接受度與流行度。",
+          "url": "https://www.threads.com/@4514._.06/post/DLiTr0ET8j6"
+        }
+      ]
+    },
+    "posts": [
+      {
+        "permalink": "https://www.threads.com/@sanshi.tw/post/DV5-IuHk0yo",
+        "username": "sanshi.tw",
+        "post_date": "2026-3-15",
+        "content": "很多人都覺得\n韓國男生很會穿。\n但其實仔細看會發現\n他們的穿搭 沒有很複雜。\n很多時候只是\nTee＋寬褲\n襯衫＋牛仔褲\n針織＋西裝褲。\n都是很基本的單品。\n差別通常只有三件事：\n版型微寬鬆\n比例看起來比較自然。\n顏色很簡單\n米色、灰色、藍色、卡其、黑色、棕色\n怎麼搭都不會亂。\n衣服本身有質感\n所以很多韓國男生的穿搭\n看起來都會有一種感覺：\n好像只是隨便穿一下\n但整體很好看。\n其實就是一句話：\n越簡單的穿搭\n越考驗衣服本身。",
+        "likes": 459,
+        "comments": 11,
+        "reposts": 5,
+        "shares": 113,
+        "keyword": "男生穿搭"
+      },
+      {
+        "permalink": "https://www.threads.com/@kongirl22/post/DEwqCcaTnkB",
+        "username": "kongirl22",
+        "post_date": "2025-1-13",
+        "content": "之前很多台男會說\n台灣男生穿搭不好看是因為天氣太熱\n但最近天氣冷成這樣\n我看路上台男穿搭還是一坨",
+        "likes": 7682,
+        "comments": 454,
+        "reposts": 163,
+        "shares": 289,
+        "keyword": "男生穿搭"
+      },
+      {
+        "permalink": "https://www.threads.com/@4514._.06/post/DLiTr0ET8j6",
+        "username": "4514._.06",
+        "post_date": "2025-6-30",
+        "content": "有人可以推薦蝦皮美式復古 大碼辣妹衣嗎🤩\n還有五分褲\n本人150",
+        "likes": 24,
+        "comments": 13,
+        "reposts": 4,
+        "shares": 0,
+        "keyword": "美式復古"
+      }
+    ]
+  },
   "2026-04-04": {
     "keyword_tags": [
       "男生穿搭",
@@ -541,118 +604,6 @@
         "comments": 32,
         "reposts": 3,
         "shares": 45,
-        "keyword": "阿美咔嘰"
-      }
-    ]
-  },
-  "2026-03-31": {
-    "keyword_tags": [
-      "男生穿搭",
-      "美式復古",
-      "阿美咔嘰"
-    ],
-    "ai_summary": {
-      "title": "今日 Threads 男裝與復古穿搭趨勢觀察",
-      "intro": "今日 Threads 穿搭社群展現出顯著的「實用主義」與「復古入門」雙軌趨勢。一方面，男性使用者對於服飾價格的高昂感觸深切，引發關於平價優質店家的熱烈討論；另一方面，美式復古（Amekaji）風格討論度攀升，大眾品牌如 Uniqlo 推出的復古感單品成為入門首選，而經典皮靴與多層次穿搭邏輯也成為穿搭愛好者的核心話題。",
-      "highlights": [
-        {
-          "title": "男裝高溢價引發共鳴，平價店清單受追捧",
-          "description": "網友討論台灣男裝普遍價格偏高，導致穿搭門檻提升，吸引超過兩萬人點讚。對此，社群開始主動彙整千元以下、高 CP 值的男裝店家清單，顯示出「經濟實惠」仍是目前 Threads 男裝圈的核心關注點。",
-          "url": "https://www.threads.com/@albus0429/post/DFxJRsjSPA2"
-        },
-        {
-          "title": "大眾品牌復刻經典，阿美咔嘰風格門檻降低",
-          "description": "穿搭博主詳細分析了 Uniqlo 新品牛仔外套的復古細節，如金屬扣與背後束帶設計，並與經典單品對比。這種將阿美咔嘰（Amekaji）元素融入大眾服飾的趨勢，讓更多初學者能以平易近人的方式接觸美式復古風。",
-          "url": "https://www.threads.com/@uqdkk_lila/post/DTf_mO7E4be"
-        },
-        {
-          "title": "資深玩家分享皮靴心法，Red Wing 實穿性獲肯定",
-          "description": "資深美式復古愛好者針對 Red Wing、White's 與 Wesco 等經典工作靴品牌進行評測，指出 Red Wing 在重量與日常實穿性上的優勢。這類關於皮衣、油布外套與正裝靴（Paraboot）的專業討論，正逐步凝聚 Threads 上的復古小眾社群。",
-          "url": "https://www.threads.com/@anpanman_m38/post/DRe_Pl7CYRt"
-        },
-        {
-          "title": "美式層次穿搭與重磅單品需求增加",
-          "description": "社群中出現對「美式復古重磅 T-shirt」的高詢問度，並有觀點指出美式穿搭中「襯衫內搭 T-shirt」的層次邏輯，顯示出男裝風格正從簡單單穿轉向更注重版型細節與內外層次組合。",
-          "url": "https://www.threads.com/@playoneshop/post/DWGS2-wkY-p"
-        }
-      ]
-    },
-    "posts": [
-      {
-        "permalink": "https://www.threads.com/@albus0429/post/DFxJRsjSPA2",
-        "username": "albus0429",
-        "post_date": "2025-2-7",
-        "content": "普遍台灣男生不是不會穿搭\n只是純粹很窮\n男生衣服真的很貴==",
-        "likes": 22000,
-        "comments": 1544,
-        "reposts": 794,
-        "shares": 1242,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@_djie48.c/post/DHqvvFDB3Jq",
-        "username": "_djie48.c",
-        "post_date": "2025-3-26",
-        "content": "徵求男生夏季穿搭照片，借我參考拜託了😭",
-        "likes": 5342,
-        "comments": 553,
-        "reposts": 142,
-        "shares": 766,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@playoneshop/post/DWGS2-wkY-p",
-        "username": "playoneshop",
-        "post_date": "2026-3-20",
-        "content": "冷知識 🇺🇸\n很多美國男生穿襯衫\n裡面經常搭一件 T恤",
-        "likes": 205,
-        "comments": 44,
-        "reposts": 11,
-        "shares": 2,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@sisiloveyouuu/post/DQ5rdlIgQBP",
-        "username": "sisiloveyouuu",
-        "post_date": "2025-11-11",
-        "content": "男生學穿搭，在這幾家挑衣服就對了！！\n請收藏好這5家\n1000以下買衣服沒有雷🙂‍↔️",
-        "likes": 3106,
-        "comments": 30,
-        "reposts": 351,
-        "shares": 2613,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@_148m_/post/DNpxNiVz6DJ",
-        "username": "_148m_",
-        "post_date": "2025-8-22",
-        "content": "哪裡可以找到美式復古\n重磅短t、t恤的網路或實體店面？？？？",
-        "likes": 12,
-        "comments": 22,
-        "reposts": 2,
-        "shares": 0,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@uqdkk_lila/post/DTf_mO7E4be",
-        "username": "uqdkk_lila",
-        "post_date": "2026-1-14",
-        "content": "聽說UQ新品牛仔外套68色日本已經賣到缺貨了 大家還不快買起來❤️‍🔥\n去年女款的牛仔襯衫就已經造成不小的聲量 26ss直接推出男版！和舊款男版牛仔外套（印象中是兩三年前的款式）相比：\n- 鈕扣直接使用這種復古的金屬感鈕扣 舊款使用的是一般的襯衫式牛仔外套的大鈕扣\n- 新增背後的束帶 古著感直接飆升（有懂行的老哥可以幫我科普一下這個外觀比較像哪款經典單品）\n- 版型相較真正的古著牛仔外套更加寬鬆舒適 但依舊好搭 推出的兩款顏色我反而比較喜歡淺色的那款\n以上介紹！分享給想要接觸經典單品但是又害怕傷害的同學們 應該是可以當作阿美咔嘰風格的入門單品\n搭配建議：可以當作中間層的點綴 也可單穿\n外套可以嘗試搭配非常經典的M65 parka 或者是MA-1飛行外套 也可以穿一件合身的cardigan在牛仔外套裡面增加層次 飾品的話可以配上一頂大紅帽 直接給他新年戴紅帽 提早新年快樂（？",
-        "likes": 63,
-        "comments": 10,
-        "reposts": 1,
-        "shares": 71,
-        "keyword": "阿美咔嘰"
-      },
-      {
-        "permalink": "https://www.threads.com/@anpanman_m38/post/DRe_Pl7CYRt",
-        "username": "anpanman_m38",
-        "post_date": "2025-11-25",
-        "content": "以前剛踏入阿美咔嘰這個領域時，在台北還有台中的店家客制了幾雙white’s與wesco，後來買越多接觸越多品牌後才發現還是red wing最實穿！不為什麼…就光重量來說我走路就輕鬆多了，而正裝或是稍正式的穿著就是paraboot跟trickers最好搭，脆上面好像很少同為阿美咔嘰的愛好者😭 有機會再來分享我的皮衣還有油布外套還有一些阿美咔嘰風必備的外套🧥",
-        "likes": 377,
-        "comments": 160,
-        "reposts": 2,
-        "shares": 31,
         "keyword": "阿美咔嘰"
       }
     ]
