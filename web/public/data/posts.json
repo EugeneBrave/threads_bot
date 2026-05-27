@@ -1,4 +1,116 @@
 {
+  "2026-05-27": {
+    "keyword_tags": [
+      "男生穿搭",
+      "美式復古",
+      "阿美咔嘰"
+    ],
+    "ai_summary": {
+      "title": "今日 Threads 穿搭熱門趨勢：男裝魅力與美式復古探索",
+      "intro": "今日 Threads 的穿搭討論聚焦於男性穿搭的社交影響力，以及對於美式復古與懷舊美學的多元嘗試。觀察顯示，社群對於「穿搭能提升社交競爭力」的觀點有極高共鳴；同時，用戶在風格探索上展現出模糊化、不被單一定義的趨勢，懷舊老照片的氛圍感依舊是復古風格愛好者的核心表現方式。",
+      "highlights": [
+        {
+          "title": "男裝穿搭與個人魅力提升的社群共鳴",
+          "description": "該貼文強調男性透過穿搭提升外在形象的重要性，認為優良的穿搭技巧是提升社交吸引力的關鍵。此論點獲得極高讚數，顯示出男裝穿搭在當前社群中具有高度的討論熱度與價值認同。",
+          "url": "https://www.threads.com/@ugly_face_time/post/DX_AbCgk0X8"
+        },
+        {
+          "title": "直覺式個人風格展示",
+          "description": "創作者分享日常穿搭並展現高度自信，反映出 Threads 上穿搭分享趨向於直覺、隨興且具有強烈自我意識的表現方式。",
+          "url": "https://www.threads.com/@st83514/post/DYAa4CvE_fD"
+        },
+        {
+          "title": "模糊定義的美式復古風格嘗試",
+          "description": "用戶分享其第一次嘗試新風格的過程，雖然標註為美式復古，但強調了「不被特定風格框架」的實驗精神，引發關於穿搭多元性的討論。",
+          "url": "https://www.threads.com/@njuatuz/post/DT-dYVfD5z_"
+        },
+        {
+          "title": "懷舊黑白影像與經典美學再現",
+          "description": "透過黑白色調與經典構圖重現復古懷舊感，證明了傳統攝影美學在現代穿搭論述中，仍是傳達風格質感的重要工具。",
+          "url": "https://www.threads.com/@ching_yii1119/post/DVq3rbRk1zN"
+        }
+      ]
+    },
+    "posts": [
+      {
+        "permalink": "https://www.threads.com/@ugly_face_time/post/DX_AbCgk0X8",
+        "username": "ugly_face_time",
+        "post_date": "2026-5-6",
+        "content": "⠀\n⠀⠀\n⠀⠀\n⠀男生只要長得不醜又會穿搭 絕對超搶手 ⠀\n⠀\n⠀\n⠀",
+        "likes": 37000,
+        "comments": 1411,
+        "reposts": 502,
+        "shares": 1254,
+        "keyword": "男生穿搭"
+      },
+      {
+        "permalink": "https://www.threads.com/@st83514/post/DYAa4CvE_fD",
+        "username": "st83514",
+        "post_date": "2026-5-6",
+        "content": "我這個穿搭也是非常的相當",
+        "likes": 25000,
+        "comments": 198,
+        "reposts": 91,
+        "shares": 547,
+        "keyword": "男生穿搭"
+      },
+      {
+        "permalink": "https://www.threads.com/@at_t_zero/post/C2pUjiWvJgG",
+        "username": "at_t_zero",
+        "post_date": "2024-1-28",
+        "content": "我有時候不得不說中國人的留言真的很有創意",
+        "likes": 10000,
+        "comments": 269,
+        "reposts": 807,
+        "shares": 0,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@njuatuz/post/DT-dYVfD5z_",
+        "username": "njuatuz",
+        "post_date": "2026-1-26",
+        "content": "第一次嘗試這種風格 但也不知道是什麼風格",
+        "likes": 1613,
+        "comments": 17,
+        "reposts": 11,
+        "shares": 46,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@ching_yii1119/post/DVq3rbRk1zN",
+        "username": "ching_yii1119",
+        "post_date": "2026-3-9",
+        "content": "復古懷舊\n經典黑白老照片❤️",
+        "likes": 825,
+        "comments": 9,
+        "reposts": 68,
+        "shares": 0,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@_ihsin.c/post/DM5ZlsqvQ56",
+        "username": "_ihsin.c",
+        "post_date": "2025-8-3",
+        "content": "到底為什麼阿咪被指的時候愛炸毛",
+        "likes": 5741,
+        "comments": 73,
+        "reposts": 170,
+        "shares": 422,
+        "keyword": "阿美咔嘰"
+      },
+      {
+        "permalink": "https://www.threads.com/@christyy_.y/post/DTPAt0ckXWG",
+        "username": "christyy_.y",
+        "post_date": "2026-1-8",
+        "content": "我是阿美族了！！！",
+        "likes": 346,
+        "comments": 21,
+        "reposts": 3,
+        "shares": 10,
+        "keyword": "阿美咔嘰"
+      }
+    ]
+  },
   "2026-05-26": {
     "keyword_tags": [
       "男生穿搭",
@@ -564,135 +676,6 @@
         "comments": 12,
         "reposts": 3,
         "shares": 28,
-        "keyword": "阿美咔嘰"
-      }
-    ]
-  },
-  "2026-05-22": {
-    "keyword_tags": [
-      "男生穿搭",
-      "美式復古",
-      "阿美咔嘰"
-    ],
-    "ai_summary": {
-      "title": "今日 Threads 穿搭熱門追蹤：從台男穿搭進化到美式復古風潮",
-      "intro": "今日 Threads 的穿搭討論聚焦於兩大核心：一是針對台灣男士穿搭的平反與提升建議，社群熱烈討論如何擺脫過時的「直男審美」，轉向更具質感且受異性青睞的風格；二是「美式復古」風格的持續強勢，無論是從留學生視角觀察到的審美同質化，還是特定風格的高度認同，都顯示出美式元素在當前穿搭圈的高影響力。",
-      "highlights": [
-        {
-          "title": "美式復古風的高飽和熱度",
-          "description": "該貼文獲得超過兩萬次讚好，展現出美式復古風格在年輕女性社群中極高的認同感，被網友公認為「必須鎖死」的經典風格。",
-          "url": "https://www.threads.com/@chrystel.leeen/post/DM5HxIDvrvt"
-        },
-        {
-          "title": "台男穿搭的選品平反",
-          "description": "針對社群常見的「台男不穿搭」論點，此貼文精選了具備高度審美的台男穿搭範本，引發大量正面評價，有效平衡了社群對特定族群的刻板印象。",
-          "url": "https://www.threads.com/@beauty_andthe_boy/post/DEyrg1jzS6z"
-        },
-        {
-          "title": "功能導向的告別直男穿搭清單",
-          "description": "以「受女生歡迎」為賣點，精準切中男性使用者提升自我形象的需求，透過明確的推薦清單吸引了大量互動與收藏。",
-          "url": "https://www.threads.com/@yy_cartmaster/post/DVmVofjk_Mo"
-        }
-      ]
-    },
-    "posts": [
-      {
-        "permalink": "https://www.threads.com/@beauty_andthe_boy/post/DEyrg1jzS6z",
-        "username": "beauty_andthe_boy",
-        "post_date": "2025-1-14",
-        "content": "一直看到threads說台男普遍不重視穿搭\n這是我追蹤的台男穿搭⬇️賞心悅目系列",
-        "likes": 3072,
-        "comments": 118,
-        "reposts": 109,
-        "shares": 477,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@yy_cartmaster/post/DVmVofjk_Mo",
-        "username": "yy_cartmaster",
-        "post_date": "2026-3-7",
-        "content": "有些衣服真的別再穿了告別直男穿搭。這篇建議收藏！這才是最受女生歡迎的男生穿搭清單。",
-        "likes": 1414,
-        "comments": 285,
-        "reposts": 69,
-        "shares": 449,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@fox_sun_moon2/post/DUC2FpQkj-r",
-        "username": "fox_sun_moon2",
-        "post_date": "2026-1-28",
-        "content": "男生出門約會時的必備五套穿搭🤩",
-        "likes": 670,
-        "comments": 85,
-        "reposts": 42,
-        "shares": 256,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@auxirowenra/post/DSlUtOAjYZ-",
-        "username": "auxirowenra",
-        "post_date": "2025-12-22",
-        "content": "感觉身边去了美国的很多女生朋友无论之前风格如何都清一色变成了经典美式亚裔妆容。。。震惊之余对美国审美流行风向的带动效果有一丝丝恐惧。。。",
-        "likes": 345,
-        "comments": 43,
-        "reposts": 1,
-        "shares": 5,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@chrystel.leeen/post/DM5HxIDvrvt",
-        "username": "chrystel.leeen",
-        "post_date": "2025-8-3",
-        "content": "朋友請我這輩子跟美式復古風鎖死",
-        "likes": 20000,
-        "comments": 237,
-        "reposts": 542,
-        "shares": 463,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@yuqi_157/post/DKPySfGy5fK",
-        "username": "yuqi_157",
-        "post_date": "2025-5-29",
-        "content": "親愛的 哪裡還讓你拿不出手？\n#阿美族",
-        "likes": 1973,
-        "comments": 18,
-        "reposts": 5,
-        "shares": 38,
-        "keyword": "阿美咔嘰"
-      },
-      {
-        "permalink": "https://www.threads.com/@littlesallycheng/post/DXmrgY-gV9x",
-        "username": "littlesallycheng",
-        "post_date": "2026-4-26",
-        "content": "哼哼粉留己看。\njiubaoidumi\n2026-4-15\n楽しそうに仲良く遊んでる姿も撮れました(友達🤭)行って良かった🥰\n#がんばれパンチ\n#パンチかわいい\n#パンチ推し活\n#弾丸日帰りパンチ遠征\n#がんばれ市川市動植物園",
-        "likes": 500,
-        "comments": 14,
-        "reposts": 27,
-        "shares": 26,
-        "keyword": "阿美咔嘰"
-      },
-      {
-        "permalink": "https://www.threads.com/@jiubaoidumi/post/DXJoWnEEppI",
-        "username": "jiubaoidumi",
-        "post_date": "2026-4-15",
-        "content": "楽しそうに仲良く遊んでる姿も撮れました(友達🤭)行って良かった🥰\n#がんばれパンチ\n#パンチかわいい\n#パンチ推し活\n#弾丸日帰りパンチ遠征\n#がんばれ市川市動植物園",
-        "likes": 500,
-        "comments": 14,
-        "reposts": 27,
-        "shares": 26,
-        "keyword": "阿美咔嘰"
-      },
-      {
-        "permalink": "https://www.threads.com/@fufu800101/post/DXniKbXCctB",
-        "username": "fufu800101",
-        "post_date": "2026-4-27",
-        "content": "哼哼是這個嗎\n每次都默默看著胖奇跟別人玩🤣",
-        "likes": 92,
-        "comments": 3,
-        "reposts": 2,
-        "shares": 7,
         "keyword": "阿美咔嘰"
       }
     ]
