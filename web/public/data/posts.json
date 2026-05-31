@@ -1,4 +1,171 @@
 {
+  "2026-05-31": {
+    "keyword_tags": [
+      "男生穿搭",
+      "美式復古",
+      "阿美咔嘰"
+    ],
+    "ai_summary": {
+      "title": "今日 Threads 穿搭熱門趨勢：夏日 Smart Casual 與美式街頭熱議",
+      "intro": "今日 Threads 穿搭社群聚焦於男士夏日搭配與美式復古風格。其中，針對特定場合（如婚禮）的 Smart Casual 穿搭需求顯著增加，大地色系仍是熱門選擇。同時，網民對於『美式風格』的界線討論熱烈，高品質的成套穿搭展示（Outfit Set）獲得極高關注度，顯示社群使用者對於具參考價值的視覺呈現偏好度極高。此外，部分搜尋關鍵字因語意混淆產生無關結果（如將阿美族誤認為阿美咔嘰），已於分析中排除。",
+      "highlights": [
+        {
+          "title": "高品質男士成套穿搭展示",
+          "description": "由 @ox.studio__ 發布的每日三套男裝穿搭展示，獲得超過千次讚數，反映出 Threads 用戶對於結構化、成套且具視覺美感之穿搭內容的高度需求。",
+          "url": "https://www.threads.com/@ox.studio__/post/DSSpAC8Egji"
+        },
+        {
+          "title": "夏日 Smart Casual 大地色系諮詢",
+          "description": "網友 @cksc33_andrewst95341 針對婚禮場合尋求非正式西裝的夏日大地色穿搭建議，這反映出男裝市場在特定半正式社交場合下的穿搭痛點。",
+          "url": "https://www.threads.com/@cksc33_andrewst95341/post/DY3vjjllCV5"
+        },
+        {
+          "title": "美式街頭風格的審美辯論",
+          "description": "@7hhhlover_ 發表了對現代美式穿搭的犀利見解，引發社群對於『美式風格』正統性與搭配層次感的討論，顯示美式復古街頭風格在社群中具有高度話題性。",
+          "url": "https://www.threads.com/@7hhhlover_/post/DX3PcTVmXfu"
+        },
+        {
+          "title": "男裝吸睛單品與風格話題",
+          "description": "@tebaowu 透過趣味性描述引發對特定男裝單品的討論，展現了穿搭社群中對於單品剪裁與吸睛度的關注。",
+          "url": "https://www.threads.com/@tebaowu/post/DUtEiqMEkv8"
+        }
+      ]
+    },
+    "posts": [
+      {
+        "permalink": "https://www.threads.com/@tebaowu/post/DUtEiqMEkv8",
+        "username": "tebaowu",
+        "post_date": "2026-2-13",
+        "content": "全世界男生最淫蕩的衣服 絕對是這件🥴🥴",
+        "likes": 153,
+        "comments": 16,
+        "reposts": 1,
+        "shares": 151,
+        "keyword": "男生穿搭"
+      },
+      {
+        "permalink": "https://www.threads.com/@cksc33_andrewst95341/post/DY3vjjllCV5",
+        "username": "cksc33_andrewst95341",
+        "post_date": "2天",
+        "content": "認真問夏天 男生smart casual 大地色 dress code男生有什麼搭配可以穿😱😱😱\n我想好幾天還是沒想法\n婚禮用，然後可以不用正式西裝\n感激不盡🙏🙏🙏",
+        "likes": 4,
+        "comments": 8,
+        "reposts": 1,
+        "shares": 0,
+        "keyword": "男生穿搭"
+      },
+      {
+        "permalink": "https://www.threads.com/@ox.studio__/post/DSSpAC8Egji",
+        "username": "ox.studio__",
+        "post_date": "2025-12-15",
+        "content": "一天發三套男生穿搭\n會有人看見我們嗎👀",
+        "likes": 1215,
+        "comments": 14,
+        "reposts": 45,
+        "shares": 283,
+        "keyword": "男生穿搭"
+      },
+      {
+        "permalink": "https://www.threads.com/@kian_cjhuang/post/DY7eVynCWnZ",
+        "username": "kian_cjhuang",
+        "post_date": "1天",
+        "content": "有人知道這個日系服裝嗎～\n在台北西門町武昌誠品\n是美式街頭風格嗎～",
+        "likes": 5,
+        "comments": 4,
+        "reposts": 0,
+        "shares": 0,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@lp99_520_521/post/DYMqyKslHPT",
+        "username": "lp99_520_521",
+        "post_date": "2026-5-11",
+        "content": "看來現在很流行這種裝潢風格喔\n￼我要不要也來弄一個?🤭",
+        "likes": 518,
+        "comments": 14,
+        "reposts": 16,
+        "shares": 17,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@amber_lin1006/post/DYwFfisCaVE",
+        "username": "amber_lin1006",
+        "post_date": "5天",
+        "content": "這個復古提袋\n以前到底是拿來做什麼的？",
+        "likes": 269,
+        "comments": 164,
+        "reposts": 1,
+        "shares": 3,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@7hhhlover_/post/DX3PcTVmXfu",
+        "username": "7hhhlover_",
+        "post_date": "2026-5-3",
+        "content": "美國街友都比你的美式好看",
+        "likes": 1065,
+        "comments": 3,
+        "reposts": 163,
+        "shares": 70,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@17zzzzzzzz_/post/DUVrrKLj21D",
+        "username": "17zzzzzzzz_",
+        "post_date": "2026-2-4",
+        "content": "有沒有推薦的韓系或是美式的衣服🥹",
+        "likes": 20,
+        "comments": 50,
+        "reposts": 2,
+        "shares": 1,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@ren16nie/post/DY3amjsgUbW",
+        "username": "ren16nie",
+        "post_date": "3天",
+        "content": "想蓋個原住民顏值樓\n男女都可以 不知道蓋不蓋得起來",
+        "likes": 3373,
+        "comments": 739,
+        "reposts": 60,
+        "shares": 332,
+        "keyword": "阿美咔嘰"
+      },
+      {
+        "permalink": "https://www.threads.com/@sum_mer0724/post/DY9FGe2EeFt",
+        "username": "sum_mer0724",
+        "post_date": "21小時",
+        "content": "阿美一半",
+        "likes": 61,
+        "comments": 3,
+        "reposts": 0,
+        "shares": 0,
+        "keyword": "阿美咔嘰"
+      },
+      {
+        "permalink": "https://www.threads.com/@el_maaha1official/post/DYPa61jkfCS",
+        "username": "el_maaha1official",
+        "post_date": "2026-5-12",
+        "content": "阿美族💛\n有點曬太陽而已😎",
+        "likes": 3775,
+        "comments": 122,
+        "reposts": 32,
+        "shares": 284,
+        "keyword": "阿美咔嘰"
+      },
+      {
+        "permalink": "https://www.threads.com/@perfe_ctillusion_0328/post/DNCI7mbzGbz",
+        "username": "perfe_ctillusion_0328",
+        "post_date": "2025-8-7",
+        "content": "中壢人要認識嗎\n猜一下我的角色🤣\n來認識 #阿美族 #阿嘟",
+        "likes": 108,
+        "comments": 19,
+        "reposts": 2,
+        "shares": 0,
+        "keyword": "阿美咔嘰"
+      }
+    ]
+  },
   "2026-05-30": {
     "keyword_tags": [
       "男生穿搭",
@@ -548,151 +715,6 @@
         "comments": 21,
         "reposts": 3,
         "shares": 10,
-        "keyword": "阿美咔嘰"
-      }
-    ]
-  },
-  "2026-05-26": {
-    "keyword_tags": [
-      "男生穿搭",
-      "美式復古",
-      "阿美咔嘰"
-    ],
-    "ai_summary": {
-      "title": "今日 Threads 穿搭熱門趨勢：男裝品味升級與美式復古需求",
-      "intro": "根據今日的 Threads 熱門內容分析，穿搭討論主要聚焦於男性時尚質感的提升與社群認同感。其中，一群熱愛打扮的男性集體現身引發了極高的流量與讚賞，顯示出『精緻男裝』在社群上的高接受度。同時，針對台灣男性約會穿搭的批評也反映了市場對穿搭美感的渴望。在風格選擇上，美式復古風潮持續穩定，使用者正積極尋求帶有圖騰或文字設計的基礎款單品，而非單純的素色衣著。",
-      "highlights": [
-        {
-          "title": "精緻男裝團體的集體魅力",
-          "description": "這篇貼文展示了一群熱愛打扮的男生出遊的視覺體驗，獲得高達 6.7 萬個讚。反映出社群對於男性集體展現時尚品味的正面評價，是今日最具影響力的穿搭內容。",
-          "url": "https://www.threads.com/@joseph_0102/post/DNfOCcYzYwG"
-        },
-        {
-          "title": "台灣男裝約會穿搭現況探討",
-          "description": "貼文針對台灣男性的約會穿搭提出直白批評，引發網友對男性穿搭美學缺失的討論與反思，顯示社群對於提升男性整體打扮品質有高度共鳴。",
-          "url": "https://www.threads.com/@pear.cat_lee/post/DALTnGKSS0v"
-        },
-        {
-          "title": "美式復古基礎款的需求增長",
-          "description": "使用者積極尋找非素色的美式風格短袖，特別偏好帶有圖騰與文字設計的基礎款。這顯示美式復古愛好者正轉向更具設計細節與層次感的日常單品。",
-          "url": "https://www.threads.com/@17zzzzzzzz_/post/DW_j1jcD_zw"
-        },
-        {
-          "title": "特定風格定義的社群探索",
-          "description": "透過對『女同志穿搭』定義的好奇詢問，引發對於性別、風格標籤與個人穿搭特質的深度互動，顯示 Threads 使用者對於特定風格邊界的探索欲。",
-          "url": "https://www.threads.com/@2two_official_/post/DO58kNximt7"
-        }
-      ]
-    },
-    "posts": [
-      {
-        "permalink": "https://www.threads.com/@2two_official_/post/DO58kNximt7",
-        "username": "2two_official_",
-        "post_date": "2025-9-22",
-        "content": "前幾天聽到女同志穿搭\n我想好奇一下什麼是女同志穿搭⋯\n有人可以舉例一下嗎🥹",
-        "likes": 1352,
-        "comments": 66,
-        "reposts": 13,
-        "shares": 196,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@pear.cat_lee/post/DALTnGKSS0v",
-        "username": "pear.cat_lee",
-        "post_date": "2024-9-21",
-        "content": "台灣男生的約會穿搭真的非常NG",
-        "likes": 595,
-        "comments": 105,
-        "reposts": 1,
-        "shares": 223,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@joseph_0102/post/DNfOCcYzYwG",
-        "username": "joseph_0102",
-        "post_date": "2025-8-18",
-        "content": "跟一群愛打扮的男生出門是什麼樣的體驗",
-        "likes": 67000,
-        "comments": 1676,
-        "reposts": 1931,
-        "shares": 6149,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@momolovedog66666/post/DO2MYEQkioV",
-        "username": "momolovedog66666",
-        "post_date": "2025-9-21",
-        "content": "#帅哥 #美男美女と繋がりたい #西装杀 #健身 #handsome\n大家帮忙看看什么衣服适合我",
-        "likes": 1970,
-        "comments": 74,
-        "reposts": 26,
-        "shares": 19,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@yulunahui/post/C9yRujMzqd1",
-        "username": "yulunahui",
-        "post_date": "2024-7-24",
-        "content": "有人知道這種裝潢風格叫什麼嗎？",
-        "likes": 651,
-        "comments": 122,
-        "reposts": 19,
-        "shares": 87,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@17zzzzzzzz_/post/DW_j1jcD_zw",
-        "username": "17zzzzzzzz_",
-        "post_date": "2026-4-11",
-        "content": "誰有賣那種比較美式風格的衣服😭\n最近很缺那種一般基礎款的短袖\n但上面有文字 圖案等等的\n不要只有素踢的那種\n其他美式服裝也看看😚",
-        "likes": 186,
-        "comments": 53,
-        "reposts": 4,
-        "shares": 60,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@kinchenin09/post/DYEuxBLFLfX",
-        "username": "kinchenin09",
-        "post_date": "2026-5-8",
-        "content": "有沒有好看的美式衣服",
-        "likes": 17,
-        "comments": 45,
-        "reposts": 1,
-        "shares": 4,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@dog_sheep666/post/DU7wXDVAZ_q",
-        "username": "dog_sheep666",
-        "post_date": "2026-2-19",
-        "content": "我在台灣好像沒怎麼看過美式重機",
-        "likes": 375,
-        "comments": 107,
-        "reposts": 2,
-        "shares": 11,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@justin_chang_66/post/DXRTe8RE8jW",
-        "username": "justin_chang_66",
-        "post_date": "2026-4-18",
-        "content": "三星跟阿美竟賺這麼多？！",
-        "likes": 324,
-        "comments": 37,
-        "reposts": 8,
-        "shares": 88,
-        "keyword": "阿美咔嘰"
-      },
-      {
-        "permalink": "https://www.threads.com/@chenlin3914/post/DM4NANjxJp2",
-        "username": "chenlin3914",
-        "post_date": "2025-8-3",
-        "content": "這個妹妹真的漂亮\n阿美族的改應❤️",
-        "likes": 8692,
-        "comments": 120,
-        "reposts": 27,
-        "shares": 465,
         "keyword": "阿美咔嘰"
       }
     ]
