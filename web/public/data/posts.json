@@ -1,4 +1,127 @@
 {
+  "2026-06-01": {
+    "keyword_tags": [
+      "男生穿搭",
+      "美式復古",
+      "阿美咔嘰"
+    ],
+    "ai_summary": {
+      "title": "今日 Threads 穿搭熱門趨勢：美式復古與男裝風格定義",
+      "intro": "今日的討論焦點集中在美式復古（Americana）風格的細分與男裝穿搭邏輯的探索。觀察發現，使用者已不再滿足於單純的素面 T-shirt，而是轉向追求具有視覺圖騰或文字設計的基礎單品。此外，社群中出現了對「何謂男裝穿搭」的定義式探討，顯示 Threads 使用者正從單純的穿搭展示，演進至審美觀念的深度交流。",
+      "highlights": [
+        {
+          "title": "男裝穿搭定義大討論",
+          "description": "網友發起對「男性穿搭定義」的詢問，引發大量男性網友蓋樓分享個人風格，是今日最熱門的男裝概念討論帖。",
+          "url": "https://www.threads.com/@stanleyyu_0219/post/DHiNfkgzvZg"
+        },
+        {
+          "title": "美式復古基礎單品需求激增",
+          "description": "使用者積極尋求帶有文字與圖案的美式風格基礎款短袖，顯示出市場對於「非素色」復古街頭單品的強烈需求。",
+          "url": "https://www.threads.com/@17zzzzzzzz_/post/DW_j1jcD_zw"
+        },
+        {
+          "title": "神祕稀有風格穿搭展示",
+          "description": "獲得超過千讚的高熱度貼文，展示了獨特的造型設計，展現出 Threads 使用者對於稀有感與個性化造型的高度認同。",
+          "url": "https://www.threads.com/@baimooo._.1130/post/DX_gn93FHDR"
+        },
+        {
+          "title": "經典復古造型復興",
+          "description": "以經典造型為題的分享，強調了美式復古風格中的長青元素與視覺呈現。",
+          "url": "https://www.threads.com/@wmy_touxu01/post/DXWqhaxiXhq"
+        }
+      ]
+    },
+    "posts": [
+      {
+        "permalink": "https://www.threads.com/@stanleyyu_0219/post/DHiNfkgzvZg",
+        "username": "stanleyyu_0219",
+        "post_date": "2025-3-23",
+        "content": "想問一下各位廣大男性對於會穿搭的定義是什麼🥹\n蓋一個男性穿搭樓",
+        "likes": 135,
+        "comments": 0,
+        "reposts": 0,
+        "shares": 0,
+        "keyword": "男生穿搭"
+      },
+      {
+        "permalink": "https://www.threads.com/@17zzzzzzzz_/post/DW_j1jcD_zw",
+        "username": "17zzzzzzzz_",
+        "post_date": "2026-4-11",
+        "content": "誰有賣那種比較美式風格的衣服😭\n最近很缺那種一般基礎款的短袖\n但上面有文字 圖案等等的\n不要只有素踢的那種\n其他美式服裝也看看😚",
+        "likes": 186,
+        "comments": 53,
+        "reposts": 4,
+        "shares": 62,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@wmy_touxu01/post/DXWqhaxiXhq",
+        "username": "wmy_touxu01",
+        "post_date": "2026-4-20",
+        "content": "经典造型来也",
+        "likes": 374,
+        "comments": 15,
+        "reposts": 14,
+        "shares": 25,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@baimooo._.1130/post/DX_gn93FHDR",
+        "username": "baimooo._.1130",
+        "post_date": "2026-5-6",
+        "content": "百年一見的神秘稀有造型",
+        "likes": 1104,
+        "comments": 30,
+        "reposts": 6,
+        "shares": 14,
+        "keyword": "美式復古"
+      },
+      {
+        "permalink": "https://www.threads.com/@a_168_88/post/DXWZxn6mdVQ",
+        "username": "a_168_88",
+        "post_date": "2026-4-20",
+        "content": "高火安美進新娃了\nSumimi初華Get!\n我看裡面還有阿拉蕾\n甜甜圈女士也有🍩",
+        "likes": 378,
+        "comments": 29,
+        "reposts": 8,
+        "shares": 168,
+        "keyword": "阿美咔嘰"
+      },
+      {
+        "permalink": "https://www.threads.com/@choudi9126_/post/DY3tN2MEW3u",
+        "username": "choudi9126_",
+        "post_date": "4天",
+        "content": "他們會幫米圈創造屬於阿米的梗圖系列",
+        "likes": 523,
+        "comments": 1,
+        "reposts": 32,
+        "shares": 17,
+        "keyword": "阿美咔嘰"
+      },
+      {
+        "permalink": "https://www.threads.com/@jenpengchen/post/DX89938ETIj",
+        "username": "jenpengchen",
+        "post_date": "2026-5-5",
+        "content": "恭喜阿咪！！",
+        "likes": 65,
+        "comments": 2,
+        "reposts": 5,
+        "shares": 0,
+        "keyword": "阿美咔嘰"
+      },
+      {
+        "permalink": "https://www.threads.com/@wunini_0809/post/DYWnvT6ExK3",
+        "username": "wunini_0809",
+        "post_date": "2026-5-15",
+        "content": "阿美族女孩💗💖💗",
+        "likes": 353,
+        "comments": 11,
+        "reposts": 2,
+        "shares": 0,
+        "keyword": "阿美咔嘰"
+      }
+    ]
+  },
   "2026-05-31": {
     "keyword_tags": [
       "男生穿搭",
@@ -603,118 +726,6 @@
         "comments": 49,
         "reposts": 30,
         "shares": 5,
-        "keyword": "阿美咔嘰"
-      }
-    ]
-  },
-  "2026-05-27": {
-    "keyword_tags": [
-      "男生穿搭",
-      "美式復古",
-      "阿美咔嘰"
-    ],
-    "ai_summary": {
-      "title": "今日 Threads 穿搭熱門趨勢：男裝魅力與美式復古探索",
-      "intro": "今日 Threads 的穿搭討論聚焦於男性穿搭的社交影響力，以及對於美式復古與懷舊美學的多元嘗試。觀察顯示，社群對於「穿搭能提升社交競爭力」的觀點有極高共鳴；同時，用戶在風格探索上展現出模糊化、不被單一定義的趨勢，懷舊老照片的氛圍感依舊是復古風格愛好者的核心表現方式。",
-      "highlights": [
-        {
-          "title": "男裝穿搭與個人魅力提升的社群共鳴",
-          "description": "該貼文強調男性透過穿搭提升外在形象的重要性，認為優良的穿搭技巧是提升社交吸引力的關鍵。此論點獲得極高讚數，顯示出男裝穿搭在當前社群中具有高度的討論熱度與價值認同。",
-          "url": "https://www.threads.com/@ugly_face_time/post/DX_AbCgk0X8"
-        },
-        {
-          "title": "直覺式個人風格展示",
-          "description": "創作者分享日常穿搭並展現高度自信，反映出 Threads 上穿搭分享趨向於直覺、隨興且具有強烈自我意識的表現方式。",
-          "url": "https://www.threads.com/@st83514/post/DYAa4CvE_fD"
-        },
-        {
-          "title": "模糊定義的美式復古風格嘗試",
-          "description": "用戶分享其第一次嘗試新風格的過程，雖然標註為美式復古，但強調了「不被特定風格框架」的實驗精神，引發關於穿搭多元性的討論。",
-          "url": "https://www.threads.com/@njuatuz/post/DT-dYVfD5z_"
-        },
-        {
-          "title": "懷舊黑白影像與經典美學再現",
-          "description": "透過黑白色調與經典構圖重現復古懷舊感，證明了傳統攝影美學在現代穿搭論述中，仍是傳達風格質感的重要工具。",
-          "url": "https://www.threads.com/@ching_yii1119/post/DVq3rbRk1zN"
-        }
-      ]
-    },
-    "posts": [
-      {
-        "permalink": "https://www.threads.com/@ugly_face_time/post/DX_AbCgk0X8",
-        "username": "ugly_face_time",
-        "post_date": "2026-5-6",
-        "content": "⠀\n⠀⠀\n⠀⠀\n⠀男生只要長得不醜又會穿搭 絕對超搶手 ⠀\n⠀\n⠀\n⠀",
-        "likes": 37000,
-        "comments": 1411,
-        "reposts": 502,
-        "shares": 1254,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@st83514/post/DYAa4CvE_fD",
-        "username": "st83514",
-        "post_date": "2026-5-6",
-        "content": "我這個穿搭也是非常的相當",
-        "likes": 25000,
-        "comments": 198,
-        "reposts": 91,
-        "shares": 547,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@at_t_zero/post/C2pUjiWvJgG",
-        "username": "at_t_zero",
-        "post_date": "2024-1-28",
-        "content": "我有時候不得不說中國人的留言真的很有創意",
-        "likes": 10000,
-        "comments": 269,
-        "reposts": 807,
-        "shares": 0,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@njuatuz/post/DT-dYVfD5z_",
-        "username": "njuatuz",
-        "post_date": "2026-1-26",
-        "content": "第一次嘗試這種風格 但也不知道是什麼風格",
-        "likes": 1613,
-        "comments": 17,
-        "reposts": 11,
-        "shares": 46,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@ching_yii1119/post/DVq3rbRk1zN",
-        "username": "ching_yii1119",
-        "post_date": "2026-3-9",
-        "content": "復古懷舊\n經典黑白老照片❤️",
-        "likes": 825,
-        "comments": 9,
-        "reposts": 68,
-        "shares": 0,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@_ihsin.c/post/DM5ZlsqvQ56",
-        "username": "_ihsin.c",
-        "post_date": "2025-8-3",
-        "content": "到底為什麼阿咪被指的時候愛炸毛",
-        "likes": 5741,
-        "comments": 73,
-        "reposts": 170,
-        "shares": 422,
-        "keyword": "阿美咔嘰"
-      },
-      {
-        "permalink": "https://www.threads.com/@christyy_.y/post/DTPAt0ckXWG",
-        "username": "christyy_.y",
-        "post_date": "2026-1-8",
-        "content": "我是阿美族了！！！",
-        "likes": 346,
-        "comments": 21,
-        "reposts": 3,
-        "shares": 10,
         "keyword": "阿美咔嘰"
       }
     ]
