@@ -6,6 +6,7 @@ on:
     paths:
       - 'web/**'
       - 'web/public/data/posts.json'
+      - '.github/workflows/deploy_web.yml'
   workflow_dispatch:
 
 permissions:
@@ -15,17 +16,11 @@ permissions:
 
 concurrency:
   group: 'pages'
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -55,6 +50,13 @@ jobs:
         with:
           path: web/dist
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
-        id: deploy
+        id: deployment
         uses: actions/deploy-pages@v4
