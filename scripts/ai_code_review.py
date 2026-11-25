@@ -88,6 +88,18 @@ def perform_review(diff: str, api_key: str) -> bool:
                 config=config,
             )
 
+            usage = getattr(response, "usage_metadata", None)
+            if usage:
+                prompt_tokens = getattr(usage, "prompt_token_count", 0) or 0
+                output_tokens = getattr(usage, "candidates_token_count", 0) or 0
+                total_tokens = getattr(usage, "total_token_count", 0) or (
+                    prompt_tokens + output_tokens
+                )
+                print(
+                    f"[AI] Token Usage ({model_name}): "
+                    f"input={prompt_tokens}, output={output_tokens}, total={total_tokens}"
+                )
+
             reply = (response.text or "").strip()
             if not reply:
                 print(f"[AI] Empty response from {model_name}, trying next model...")
