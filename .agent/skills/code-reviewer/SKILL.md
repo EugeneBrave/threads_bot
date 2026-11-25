@@ -5,7 +5,7 @@ description: Reviews staged code changes using Gemini AI through a git pre-commi
 
 # Code Reviewer Skill
 
-This skill allows the agent to perform an automated code review on staged changes (`git diff --staged`) using the `scripts/ai_code_review.py` utility. The script is powered by `google-genai` and uses Gemini 2.5 Flash.
+This skill allows the agent to perform an automated code review on staged changes (`git diff --staged`, excluding `package-lock.json` and `posts.json`) using the `scripts/ai_code_review.py` utility. The script is powered by `google-genai`, automatically loads `.env`, and dynamically selects the latest lightweight Gemini model with fallback.
 
 It covers both **Python backend** code and the **React/TypeScript/styled-components frontend** (`web/`).
 
