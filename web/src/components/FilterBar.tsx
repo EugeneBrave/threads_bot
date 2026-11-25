@@ -2,68 +2,86 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { setSelectedKeyword, setSelectedDate } from '../features/posts/postsSlice';
 
-const FilterBarOuter = styled.nav`
-  border-bottom: 1px solid var(--border-subtle);
+const FilterNav = styled.nav`
   background: var(--bg-canvas);
+  border-bottom: 1px solid var(--border-subtle);
 `;
 
-const FilterWrapper = styled.div`
-  max-width: 1160px;
+const FilterInner = styled.div`
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 0 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 20px;
 
-  @media (max-width: 640px) {
-    padding: 14px 16px;
+  @media (max-width: 720px) {
+    padding: 0 16px;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 0;
   }
 `;
 
-const ChipRow = styled.div`
+const TabRow = styled.div`
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
   align-items: center;
+  gap: 22px;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
-const Chip = styled.button<{ $active: boolean }>`
-  padding: 7px 16px;
-  border-radius: 999px;
-  border: 1px solid ${(props) => (props.$active ? 'var(--border-strong)' : 'var(--border-subtle)')};
-  background: ${(props) => (props.$active ? 'var(--text-primary)' : 'var(--bg-surface)')};
-  color: ${(props) => (props.$active ? 'var(--bg-surface)' : 'var(--text-secondary)')};
-  font-size: 13px;
-  font-weight: ${(props) => (props.$active ? 600 : 500)};
-  letter-spacing: 0.02em;
+const TabButton = styled.button<{ $active: boolean }>`
+  position: relative;
+  padding: 14px 2px;
+  border: none;
+  background: transparent;
+  color: ${(props) => (props.$active ? 'var(--text-primary)' : 'var(--text-muted)')};
+  font-size: 14px;
+  font-weight: ${(props) => (props.$active ? 700 : 500)};
+  white-space: nowrap;
   cursor: pointer;
-  transition: all 0.2s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: ${(props) => (props.$active ? 'var(--accent)' : 'transparent')};
+  }
 
   &:hover {
-    border-color: var(--border-strong);
-    color: ${(props) => (props.$active ? 'var(--bg-surface)' : 'var(--text-primary)')};
+    color: var(--text-primary);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--accent-indigo);
-    outline-offset: 2px;
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
   }
 `;
 
-const DateRow = styled.div`
+const DateControls = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  flex-shrink: 0;
+
+  @media (max-width: 720px) {
+    padding: 12px 0 4px;
+    justify-content: space-between;
+  }
 `;
 
 const DateLabel = styled.label`
   color: var(--text-muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 13px;
 `;
 
 const DateSelect = styled.select`
@@ -71,12 +89,12 @@ const DateSelect = styled.select`
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
-  padding: 6px 12px;
+  padding: 6px 10px;
   font-size: 13px;
   font-weight: 500;
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
   cursor: pointer;
-  transition: border-color 0.2s ease;
 
   &:hover,
   &:focus-visible {
@@ -95,11 +113,11 @@ const FilterBar = () => {
   const keywords = currentData ? ['全部', ...currentData.keyword_tags] : ['全部'];
 
   return (
-    <FilterBarOuter aria-label="內容篩選">
-      <FilterWrapper>
-        <ChipRow role="tablist" aria-label="穿搭分類">
+    <FilterNav aria-label="分類與日期篩選">
+      <FilterInner>
+        <TabRow role="tablist" aria-label="穿搭主題">
           {keywords.map((kw) => (
-            <Chip
+            <TabButton
               key={kw}
               type="button"
               role="tab"
@@ -108,14 +126,14 @@ const FilterBar = () => {
               onClick={() => dispatch(setSelectedKeyword(kw))}
             >
               {kw}
-            </Chip>
+            </TabButton>
           ))}
-        </ChipRow>
+        </TabRow>
 
-        <DateRow>
-          <DateLabel htmlFor="issue-date-select">ISSUE DATE</DateLabel>
+        <DateControls>
+          <DateLabel htmlFor="digest-date-select">日期</DateLabel>
           <DateSelect
-            id="issue-date-select"
+            id="digest-date-select"
             value={selectedDate}
             onChange={(e) => dispatch(setSelectedDate(e.target.value))}
           >
@@ -125,9 +143,9 @@ const FilterBar = () => {
               </option>
             ))}
           </DateSelect>
-        </DateRow>
-      </FilterWrapper>
-    </FilterBarOuter>
+        </DateControls>
+      </FilterInner>
+    </FilterNav>
   );
 };
 

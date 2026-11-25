@@ -6,90 +6,53 @@ interface AiSummaryProps {
   summary: string | AiSummaryData | null | undefined;
 }
 
-const SummarySection = styled.section`
-  margin: 28px 0 36px;
-`;
-
-const EditorialSpread = styled.div`
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-top: 3px solid var(--border-strong);
-  border-radius: 4px;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-
-  @media (min-width: 900px) {
-    grid-template-columns: 5fr 7fr;
-  }
-`;
-
-const LeadColumn = styled.div`
-  padding: 28px 28px 24px;
+const RailPanel = styled.aside`
+  background: var(--bg-wash);
+  border-radius: 10px;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-subtle);
+  gap: 24px;
 
-  @media (min-width: 900px) {
-    border-bottom: none;
-    border-right: 1px solid var(--border-subtle);
-    padding: 36px 32px;
+  @media (min-width: 960px) {
+    position: sticky;
+    top: 84px;
+    max-height: calc(100vh - 108px);
+    overflow-y: auto;
   }
 `;
 
-const Kicker = styled.div`
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent-terracotta);
-  margin-bottom: 12px;
+const DigestHeader = styled.div`
   display: flex;
-  align-items: center;
-  gap: 8px;
-
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 18px;
-    height: 1.5px;
-    background: var(--accent-terracotta);
-  }
+  flex-direction: column;
+  gap: 12px;
 `;
 
 const Headline = styled.h2`
-  font-family: var(--font-serif);
-  font-size: clamp(22px, 2.5vw, 30px);
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.2vw, 26px);
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.35;
-  margin-bottom: 16px;
-  letter-spacing: 0.01em;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
 `;
 
 const IntroText = styled.p`
   color: var(--text-secondary);
   font-size: 14.5px;
-  line-height: 1.8;
-  margin: 0;
+  line-height: 1.75;
 `;
 
-const LegacyContent = styled.div`
+const LegacyBody = styled.div`
   color: var(--text-secondary);
   font-size: 14.5px;
-  line-height: 1.8;
-  padding: 28px;
+  line-height: 1.75;
 
   a {
-    color: var(--accent-indigo);
+    color: var(--accent);
     font-weight: 600;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
-
-    &:hover {
-      border-bottom-color: var(--accent-indigo);
-    }
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   strong {
@@ -98,94 +61,64 @@ const LegacyContent = styled.div`
   }
 `;
 
-const HighlightsColumn = styled.div`
-  padding: 24px 24px 28px;
-  background: var(--bg-canvas);
-
-  @media (min-width: 900px) {
-    padding: 32px;
-  }
-`;
-
-const HighlightsHeader = styled.div`
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border-subtle);
-`;
-
-const HighlightsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-`;
-
-const HighlightCard = styled.article`
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-  padding: 16px;
+const HighlightsBlock = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-
-  &:hover {
-    border-color: var(--accent-indigo);
-    transform: translateY(-1px);
-  }
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
 `;
 
-const HighlightTop = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-`;
-
-const HighlightNumber = styled.span`
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--accent-indigo);
-`;
-
-const HighlightTitle = styled.h3`
+const HighlightsHeading = styled.h3`
   font-size: 14px;
   font-weight: 700;
   color: var(--text-primary);
+`;
+
+const HighlightList = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+`;
+
+const HighlightItem = styled.li`
+  padding-left: 14px;
+  border-left: 2px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  &:hover {
+    border-left-color: var(--accent);
+  }
+`;
+
+const HighlightTitle = styled.div`
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
   line-height: 1.45;
-  margin: 0;
 `;
 
 const HighlightDesc = styled.p`
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--text-secondary);
   line-height: 1.65;
-  margin: 0;
 `;
 
 const HighlightLink = styled.a`
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent-indigo);
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
   align-self: flex-start;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
   margin-top: 2px;
 
-  &:hover {
-    text-decoration: underline;
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 `;
 
@@ -212,10 +145,9 @@ function parseAiSummary(text: string): React.ReactNode[] {
       );
     } else if (match[3]) {
       const url = match[3];
-      const label = shortenUrl(url);
       nodes.push(
         <a key={`url-${key++}`} href={url} target="_blank" rel="noopener noreferrer">
-          {label}
+          {shortenUrl(url)}
         </a>
       );
     } else if (match[4]) {
@@ -247,10 +179,10 @@ function shortenUrl(url: string): string {
     const u = new URL(url);
     const path = u.pathname.split('/');
     const user = path.find((p) => p.startsWith('@'));
-    if (user) return `🔗 ${user}`;
-    return '🔗 查看連結';
+    if (user) return user;
+    return '閱讀原貼文';
   } catch {
-    return '🔗 查看連結';
+    return '閱讀原貼文';
   }
 }
 
@@ -259,15 +191,12 @@ const AiSummary = ({ summary }: AiSummaryProps) => {
 
   if (typeof summary === 'string') {
     return (
-      <SummarySection aria-label="AI 今日穿搭趨勢速報">
-        <EditorialSpread style={{ gridTemplateColumns: '1fr' }}>
-          <LegacyContent>
-            <Kicker>Editor&apos;s Note · AI Trend Report</Kicker>
-            <Headline>AI 今日穿搭趨勢速報</Headline>
-            <div>{parseAiSummary(summary)}</div>
-          </LegacyContent>
-        </EditorialSpread>
-      </SummarySection>
+      <RailPanel aria-label="今日穿搭趨勢摘要">
+        <DigestHeader>
+          <Headline>今日穿搭趨勢摘要</Headline>
+          <LegacyBody>{parseAiSummary(summary)}</LegacyBody>
+        </DigestHeader>
+      </RailPanel>
     );
   }
 
@@ -275,37 +204,29 @@ const AiSummary = ({ summary }: AiSummaryProps) => {
   const highlights = Array.isArray(data.highlights) ? data.highlights : [];
 
   return (
-    <SummarySection aria-label="AI 今日穿搭趨勢速報">
-      <EditorialSpread>
-        <LeadColumn>
-          <div>
-            <Kicker>Editor&apos;s Note · AI Trend Report</Kicker>
-            <Headline>{data.title || 'AI 今日穿搭趨勢速報'}</Headline>
-            {data.intro && <IntroText>{data.intro}</IntroText>}
-          </div>
-        </LeadColumn>
+    <RailPanel aria-label="今日穿搭趨勢摘要">
+      <DigestHeader>
+        <Headline>{data.title || '今日穿搭趨勢摘要'}</Headline>
+        {data.intro && <IntroText>{data.intro}</IntroText>}
+      </DigestHeader>
 
-        {highlights.length > 0 && (
-          <HighlightsColumn>
-            <HighlightsHeader>Curated Highlights · 精華貼文精選</HighlightsHeader>
-            <HighlightsGrid>
-              {highlights.map((item: AiHighlight, index: number) => (
-                <HighlightCard key={index}>
-                  <HighlightTop>
-                    <HighlightNumber>{String(index + 1).padStart(2, '0')}</HighlightNumber>
-                    <HighlightTitle>{item.title}</HighlightTitle>
-                    <HighlightDesc>{item.description}</HighlightDesc>
-                  </HighlightTop>
-                  <HighlightLink href={item.url} target="_blank" rel="noopener noreferrer">
-                    點我觀看原文 ↗
-                  </HighlightLink>
-                </HighlightCard>
-              ))}
-            </HighlightsGrid>
-          </HighlightsColumn>
-        )}
-      </EditorialSpread>
-    </SummarySection>
+      {highlights.length > 0 && (
+        <HighlightsBlock>
+          <HighlightsHeading>重點貼文</HighlightsHeading>
+          <HighlightList>
+            {highlights.map((item: AiHighlight, index: number) => (
+              <HighlightItem key={index}>
+                <HighlightTitle>{item.title}</HighlightTitle>
+                <HighlightDesc>{item.description}</HighlightDesc>
+                <HighlightLink href={item.url} target="_blank" rel="noopener noreferrer">
+                  閱讀原貼文
+                </HighlightLink>
+              </HighlightItem>
+            ))}
+          </HighlightList>
+        </HighlightsBlock>
+      )}
+    </RailPanel>
   );
 };
 

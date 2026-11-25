@@ -7,7 +7,7 @@ import AiSummary from './components/AiSummary';
 import PostCard from './components/PostCard';
 import Footer from './components/Footer';
 import { useAppDispatch, useAppSelector } from './app/hooks';
-import { fetchPosts } from './features/posts/postsSlice';
+import { fetchPosts, setSelectedKeyword } from './features/posts/postsSlice';
 
 const AppWrapper = styled.div`
   min-height: 100vh;
@@ -16,70 +16,101 @@ const AppWrapper = styled.div`
 `;
 
 const MainContainer = styled.main`
-  max-width: 1160px;
+  max-width: 1240px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 28px 28px 0;
   flex: 1;
 
   @media (max-width: 640px) {
-    padding: 0 16px;
+    padding: 20px 16px 0;
   }
 `;
 
-const SectionHeader = styled.div`
+const WorkspaceGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+
+  @media (min-width: 960px) {
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 32px;
+  }
+`;
+
+const FeedColumn = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+`;
+
+const FeedHeader = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border-strong);
+  gap: 12px;
 `;
 
-const SectionTitle = styled.h2`
-  font-family: var(--font-serif);
+const FeedTitle = styled.h2`
+  font-family: var(--font-display);
   font-size: 18px;
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: 0.04em;
+  letter-spacing: -0.015em;
 `;
 
-const PostCount = styled.span`
-  font-size: 12px;
-  font-weight: 600;
+const FeedCount = styled.span`
+  font-size: 13px;
   color: var(--text-muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
 `;
 
 const PostsGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 16px;
 
-  @media (min-width: 720px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (min-width: 680px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `;
 
-const LoadingWrapper = styled.div`
+const StatusBox = styled.div`
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 48px 24px;
   text-align: center;
-  padding: 80px 20px;
   color: var(--text-muted);
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+`;
+
+const ResetButton = styled.button`
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-wash);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--border-strong);
+  }
 `;
 
 const Spinner = styled.div`
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   border: 2px solid var(--border-subtle);
-  border-top-color: var(--accent-indigo);
+  border-top-color: var(--accent);
   border-radius: 50%;
-  margin: 0 auto 14px;
   animation: spin 0.8s linear infinite;
 
   @keyframes spin {
@@ -87,23 +118,10 @@ const Spinner = styled.div`
       transform: rotate(360deg);
     }
   }
-`;
 
-const ErrorMsg = styled.div`
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--accent-terracotta);
-  font-size: 14px;
-`;
-
-const EmptyMsg = styled.div`
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--text-muted);
-  font-size: 14px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `;
 
 const App = () => {
@@ -132,41 +150,57 @@ const App = () => {
 
         <MainContainer>
           {loading && (
-            <LoadingWrapper>
+            <StatusBox>
               <Spinner />
-              載入中...
-            </LoadingWrapper>
+              <span>正在讀取今日穿搭資料…</span>
+            </StatusBox>
           )}
 
-          {error && <ErrorMsg>⚠️ 載入失敗：{error}</ErrorMsg>}
+          {error && (
+            <StatusBox role="alert">
+              <span>無法載入貼文資料：{error}</span>
+            </StatusBox>
+          )}
 
           {!loading && !error && currentData && (
-            <>
+            <WorkspaceGrid>
               <AiSummary summary={currentData.ai_summary} />
 
-              <SectionHeader>
-                <SectionTitle>
-                  {selectedKeyword === '全部' ? '精選穿搭貼文' : `分類：${selectedKeyword}`}
-                </SectionTitle>
-                <PostCount>{filteredPosts.length} POSTS</PostCount>
-              </SectionHeader>
+              <FeedColumn aria-label="精選貼文清單">
+                <FeedHeader>
+                  <FeedTitle>
+                    {selectedKeyword === '全部' ? '精選貼文' : selectedKeyword}
+                  </FeedTitle>
+                  <FeedCount>共 {filteredPosts.length} 則</FeedCount>
+                </FeedHeader>
 
-              {filteredPosts.length > 0 ? (
-                <PostsGrid>
-                  {filteredPosts.map((post, i) => (
-                    <PostCard key={post.permalink} post={post} index={i} />
-                  ))}
-                </PostsGrid>
-              ) : (
-                <EmptyMsg>此分類目前沒有貼文</EmptyMsg>
-              )}
-            </>
+                {filteredPosts.length > 0 ? (
+                  <PostsGrid>
+                    {filteredPosts.map((post, i) => (
+                      <PostCard key={post.permalink} post={post} index={i} />
+                    ))}
+                  </PostsGrid>
+                ) : (
+                  <StatusBox>
+                    <span>目前沒有「{selectedKeyword}」分類的貼文。</span>
+                    {selectedKeyword !== '全部' && (
+                      <ResetButton
+                        type="button"
+                        onClick={() => dispatch(setSelectedKeyword('全部'))}
+                      >
+                        檢視全部貼文
+                      </ResetButton>
+                    )}
+                  </StatusBox>
+                )}
+              </FeedColumn>
+            </WorkspaceGrid>
           )}
 
           {!loading && !error && !currentData && (
-            <EmptyMsg style={{ marginTop: 32 }}>
-              尚無任何資料，請等待每日自動執行後再來查看 🧵
-            </EmptyMsg>
+            <StatusBox>
+              <span>目前尚無任何日期資料，待每日排程執行後即可瀏覽。</span>
+            </StatusBox>
           )}
         </MainContainer>
 

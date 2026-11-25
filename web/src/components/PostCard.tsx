@@ -1,89 +1,40 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import type { Post } from '../types';
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-const CardWrapper = styled.article<{ $index: number; $featured: boolean }>`
+const CardWrapper = styled.article`
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-  padding: 22px 22px 18px;
+  border-radius: 10px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  animation: ${fadeIn} 0.4s ease forwards;
-  animation-delay: ${(props) => Math.min(props.$index * 0.05, 0.35)}s;
-  opacity: 0;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-
-  &:hover {
-    border-color: var(--border-strong);
-    transform: translateY(-2px);
-  }
-
-  ${(props) =>
-    props.$featured &&
-    `
-    @media (min-width: 1024px) {
-      grid-column: span 2;
-      border-top: 3px solid var(--accent-indigo);
-    }
-  `}
-`;
-
-const CardTopMeta = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border-subtle);
-`;
-
-const IssueIndex = styled.span`
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
-`;
-
-const KeywordBadge = styled.span`
-  background: var(--accent-indigo-soft);
-  color: var(--accent-indigo);
-  padding: 3px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
 `;
 
 const CardHeader = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 12px;
 `;
 
+const AuthorBlock = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+`;
+
 const Avatar = styled.div`
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--bg-wash);
   color: var(--text-primary);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,8 +50,9 @@ const UserInfo = styled.div`
 
 const Username = styled.span`
   color: var(--text-primary);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
+  line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -109,15 +61,26 @@ const Username = styled.span`
 const PostDate = styled.span`
   color: var(--text-muted);
   font-size: 12px;
-  margin-top: 1px;
+  font-variant-numeric: tabular-nums;
 `;
 
-const PostText = styled.div<{ $featured: boolean }>`
-  color: var(--text-primary);
-  font-size: ${(props) => (props.$featured ? '16px' : '14.5px')};
-  line-height: 1.75;
+const KeywordTag = styled.span`
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+`;
+
+const PostText = styled.p`
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.72;
   white-space: pre-wrap;
   word-break: break-word;
+  max-width: 68ch;
   flex: 1;
 `;
 
@@ -132,30 +95,32 @@ const BottomRow = styled.div`
 
 const StatsRow = styled.div`
   display: flex;
+  align-items: center;
   gap: 14px;
 `;
 
-const StatItem = styled.div`
-  display: flex;
+const StatItem = styled.span`
+  display: inline-flex;
   align-items: center;
   gap: 4px;
   color: var(--text-muted);
-  font-size: 12.5px;
+  font-size: 13px;
   font-variant-numeric: tabular-nums;
 `;
 
 const LinkButton = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--accent-terracotta);
-  font-size: 12.5px;
+  color: var(--accent);
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: opacity 0.2s;
 
   &:hover {
     text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 `;
 
@@ -171,43 +136,41 @@ interface PostCardProps {
   index: number;
 }
 
-const PostCard = ({ post, index }: PostCardProps) => {
+const PostCard = ({ post }: PostCardProps) => {
   const initial = post.username ? post.username.replace(/^@/, '').charAt(0) : 'T';
-  const isFeatured = index === 0;
 
   return (
-    <CardWrapper $index={index} $featured={isFeatured}>
-      <div>
-        <CardTopMeta>
-          <IssueIndex>NO. {String(index + 1).padStart(2, '0')}</IssueIndex>
-          {post.keyword && <KeywordBadge>{post.keyword}</KeywordBadge>}
-        </CardTopMeta>
-
-        <CardHeader style={{ marginTop: 14 }}>
+    <CardWrapper>
+      <CardHeader>
+        <AuthorBlock>
           <Avatar aria-hidden="true">{initial}</Avatar>
           <UserInfo>
             <Username>{post.username}</Username>
             {post.post_date && <PostDate>{post.post_date}</PostDate>}
           </UserInfo>
-        </CardHeader>
-      </div>
+        </AuthorBlock>
+        {post.keyword && <KeywordTag>{post.keyword}</KeywordTag>}
+      </CardHeader>
 
-      <PostText $featured={isFeatured}>{post.content}</PostText>
+      <PostText>{post.content}</PostText>
 
       <BottomRow>
         <StatsRow>
-          <StatItem>
-            <span aria-hidden="true">❤️</span> {formatNumber(post.likes)}
+          <StatItem aria-label={`按讚數 ${post.likes}`}>
+            <span aria-hidden="true">❤️</span>
+            <span>{formatNumber(post.likes)}</span>
           </StatItem>
-          <StatItem>
-            <span aria-hidden="true">💬</span> {formatNumber(post.comments)}
+          <StatItem aria-label={`留言數 ${post.comments}`}>
+            <span aria-hidden="true">💬</span>
+            <span>{formatNumber(post.comments)}</span>
           </StatItem>
-          <StatItem>
-            <span aria-hidden="true">🔁</span> {formatNumber(post.reposts)}
+          <StatItem aria-label={`轉發數 ${post.reposts}`}>
+            <span aria-hidden="true">🔁</span>
+            <span>{formatNumber(post.reposts)}</span>
           </StatItem>
         </StatsRow>
         <LinkButton href={post.permalink} target="_blank" rel="noopener noreferrer">
-          查看原文 →
+          查看原文
         </LinkButton>
       </BottomRow>
     </CardWrapper>
