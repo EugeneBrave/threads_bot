@@ -2,101 +2,145 @@ import styled, { keyframes } from 'styled-components';
 import type { Post } from '../types';
 
 const fadeIn = keyframes`
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
-const CardWrapper = styled.article<{ $index: number }>`
-  padding: 20px 20px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+const CardWrapper = styled.article<{ $index: number; $featured: boolean }>`
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 22px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
   animation: ${fadeIn} 0.4s ease forwards;
-  animation-delay: ${(props) => props.$index * 0.06}s;
+  animation-delay: ${(props) => Math.min(props.$index * 0.05, 0.35)}s;
   opacity: 0;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  ${(props) =>
+    props.$featured &&
+    `
+    @media (min-width: 1024px) {
+      grid-column: span 2;
+      border-top: 3px solid var(--accent-indigo);
+    }
+  `}
+`;
+
+const CardTopMeta = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+`;
+
+const IssueIndex = styled.span`
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+`;
+
+const KeywordBadge = styled.span`
+  background: var(--accent-indigo-soft);
+  color: var(--accent-indigo);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 `;
 
 const CardHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
 `;
 
 const Avatar = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
   flex-shrink: 0;
+  text-transform: uppercase;
 `;
 
 const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
+  min-width: 0;
 `;
 
 const Username = styled.span`
-  color: #f5f5f5;
+  color: var(--text-primary);
   font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  
-  &:hover {
-    text-decoration: underline;
-  }
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
-const MetaRow = styled.div`
-  color: #777;
+const PostDate = styled.span`
+  color: var(--text-muted);
   font-size: 12px;
   margin-top: 1px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 `;
 
-const KeywordBadge = styled.span`
-  background: rgba(167, 139, 250, 0.1);
-  color: #a78bfa;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  border: 1px solid rgba(167, 139, 250, 0.2);
-`;
-
-const PostText = styled.div`
-  color: #eee;
-  font-size: 15px;
-  line-height: 1.5;
-  margin: 0 0 16px;
+const PostText = styled.div<{ $featured: boolean }>`
+  color: var(--text-primary);
+  font-size: ${(props) => (props.$featured ? '16px' : '14.5px')};
+  line-height: 1.75;
   white-space: pre-wrap;
   word-break: break-word;
-  letter-spacing: -0.01em;
+  flex: 1;
 `;
 
 const BottomRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  gap: 12px;
 `;
 
 const StatsRow = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 14px;
 `;
 
 const StatItem = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
-  color: #777;
-  font-size: 13px;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 12.5px;
   font-variant-numeric: tabular-nums;
 `;
 
@@ -104,15 +148,13 @@ const LinkButton = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: #a78bfa;
-  font-size: 13px;
-  text-decoration: none;
+  color: var(--accent-terracotta);
+  font-size: 12.5px;
   font-weight: 600;
-  opacity: 0.8;
+  letter-spacing: 0.02em;
   transition: opacity 0.2s;
 
   &:hover {
-    opacity: 1;
     text-decoration: underline;
   }
 `;
@@ -130,33 +172,39 @@ interface PostCardProps {
 }
 
 const PostCard = ({ post, index }: PostCardProps) => {
-  const getEmoji = (keyword?: string) => {
-    if (!keyword) return '👤';
-    const kw = keyword.toLowerCase();
-    if (kw.includes('復古')) return '🧥';
-    if (kw.includes('咔嘰')) return '👖';
-    if (kw.includes('穿搭')) return '👔';
-    return '👤';
-  };
+  const initial = post.username ? post.username.replace(/^@/, '').charAt(0) : 'T';
+  const isFeatured = index === 0;
 
   return (
-    <CardWrapper $index={index}>
-      <CardHeader>
-        <Avatar>{getEmoji(post.keyword)}</Avatar>
-        <UserInfo>
-          <Username>{post.username}</Username>
-          <MetaRow>
-            {post.post_date && <span>{post.post_date}</span>}
-            {post.keyword && <KeywordBadge>{post.keyword}</KeywordBadge>}
-          </MetaRow>
-        </UserInfo>
-      </CardHeader>
-      <PostText>{post.content}</PostText>
+    <CardWrapper $index={index} $featured={isFeatured}>
+      <div>
+        <CardTopMeta>
+          <IssueIndex>NO. {String(index + 1).padStart(2, '0')}</IssueIndex>
+          {post.keyword && <KeywordBadge>{post.keyword}</KeywordBadge>}
+        </CardTopMeta>
+
+        <CardHeader style={{ marginTop: 14 }}>
+          <Avatar aria-hidden="true">{initial}</Avatar>
+          <UserInfo>
+            <Username>{post.username}</Username>
+            {post.post_date && <PostDate>{post.post_date}</PostDate>}
+          </UserInfo>
+        </CardHeader>
+      </div>
+
+      <PostText $featured={isFeatured}>{post.content}</PostText>
+
       <BottomRow>
         <StatsRow>
-          <StatItem><span>❤️</span> {formatNumber(post.likes)}</StatItem>
-          <StatItem><span>💬</span> {formatNumber(post.comments)}</StatItem>
-          <StatItem><span>🔁</span> {formatNumber(post.reposts)}</StatItem>
+          <StatItem>
+            <span aria-hidden="true">❤️</span> {formatNumber(post.likes)}
+          </StatItem>
+          <StatItem>
+            <span aria-hidden="true">💬</span> {formatNumber(post.comments)}
+          </StatItem>
+          <StatItem>
+            <span aria-hidden="true">🔁</span> {formatNumber(post.reposts)}
+          </StatItem>
         </StatsRow>
         <LinkButton href={post.permalink} target="_blank" rel="noopener noreferrer">
           查看原文 →

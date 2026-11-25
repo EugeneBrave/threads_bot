@@ -6,7 +6,7 @@ import logging
 import asyncio
 import sys
 from datetime import datetime
-from scraper import get_top_daily_posts
+from scraper import get_top_daily_posts, normalize_url
 from ai_processor import generate_digest
 from bot import send_daily_digest
 
@@ -57,10 +57,25 @@ async def async_job():
     
     logger.info(f"Found {len(posts)} new posts. Passing to AI Processor...")
     
-    # 2. Process posts using AI (Gemini / Claude)
-    # ai_summary is now a dict
+    # 2. Process posts using AI (Gemini)
+    # ai_summary is a dict that may include Layer-2 `excluded_urls`
     ai_summary = await generate_digest(posts)
-    
+
+    excluded_urls = ai_summary.pop("excluded_urls", [])
+    if excluded_urls:
+        excluded_norm = {normalize_url(u) for u in excluded_urls if isinstance(u, str)}
+        before_count = len(posts)
+        filtered_posts = [
+            p for p in posts if normalize_url(p.get("permalink", "")) not in excluded_norm
+        ]
+        removed_count = before_count - len(filtered_posts)
+        if removed_count > 0:
+            logger.info(
+                f"AI filter removed {removed_count} ad/irrelevant posts "
+                f"({len(filtered_posts)} remaining)."
+            )
+            posts = filtered_posts
+
     # 3. Save posts to JSON for the web viewer
     save_posts_to_json(posts, ai_summary)
     

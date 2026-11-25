@@ -8,9 +8,8 @@ describe('Header', () => {
     expect(screen.getByText('Threads 每日穿搭精選')).toBeInTheDocument();
   });
 
-  it('renders with correct styles', () => {
-    const { container } = render(<Header />);
-    const headerElement = container.firstChild;
-    expect(headerElement).toHaveStyle('border-bottom: 1px solid rgba(255, 255, 255, 0.08)');
+  it('renders the theme toggle button', () => {
+    render(<Header />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 });

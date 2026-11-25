@@ -2,68 +2,86 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { setSelectedKeyword, setSelectedDate } from '../features/posts/postsSlice';
 
+const FilterBarOuter = styled.nav`
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-canvas);
+`;
+
 const FilterWrapper = styled.div`
-  padding: 16px 20px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 600px;
+  max-width: 1160px;
   margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  @media (max-width: 640px) {
+    padding: 14px 16px;
+  }
 `;
 
 const ChipRow = styled.div`
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  align-items: center;
 `;
 
 const Chip = styled.button<{ $active: boolean }>`
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: 1px solid ${(props) => (props.$active ? '#f5f5f5' : 'rgba(255, 255, 255, 0.15)')};
-  background: ${(props) => (props.$active ? '#f5f5f5' : 'transparent')};
-  color: ${(props) => (props.$active ? '#101010' : '#999')};
-  font-size: 14px;
-  font-weight: 500;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid ${(props) => (props.$active ? 'var(--border-strong)' : 'var(--border-subtle)')};
+  background: ${(props) => (props.$active ? 'var(--text-primary)' : 'var(--bg-surface)')};
+  color: ${(props) => (props.$active ? 'var(--bg-surface)' : 'var(--text-secondary)')};
+  font-size: 13px;
+  font-weight: ${(props) => (props.$active ? 600 : 500)};
+  letter-spacing: 0.02em;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: 'Inter', sans-serif;
 
   &:hover {
-    border-color: rgba(255, 255, 255, 0.4);
-    color: ${(props) => (props.$active ? '#101010' : '#ccc')};
+    border-color: var(--border-strong);
+    color: ${(props) => (props.$active ? 'var(--bg-surface)' : 'var(--text-primary)')};
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-indigo);
+    outline-offset: 2px;
   }
 `;
 
 const DateRow = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 `;
 
-const DateLabel = styled.span`
-  color: #666;
-  font-size: 13px;
+const DateLabel = styled.label`
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 `;
 
 const DateSelect = styled.select`
-  background: rgba(255, 255, 255, 0.06);
-  color: #ccc;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
   padding: 6px 12px;
   font-size: 13px;
-  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-family: var(--font-sans);
   cursor: pointer;
-  outline: none;
+  transition: border-color 0.2s ease;
 
-  &:focus {
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-
-  option {
-    background: #1a1a1a;
-    color: #ccc;
+  &:hover,
+  &:focus-visible {
+    border-color: var(--border-strong);
+    outline: none;
   }
 `;
 
@@ -77,32 +95,39 @@ const FilterBar = () => {
   const keywords = currentData ? ['全部', ...currentData.keyword_tags] : ['全部'];
 
   return (
-    <FilterWrapper>
-      <ChipRow>
-        {keywords.map((kw) => (
-          <Chip
-            key={kw}
-            $active={selectedKeyword === kw}
-            onClick={() => dispatch(setSelectedKeyword(kw))}
-          >
-            {kw}
-          </Chip>
-        ))}
-      </ChipRow>
-      <DateRow>
-        <DateLabel>📅 日期</DateLabel>
-        <DateSelect
-          value={selectedDate}
-          onChange={(e) => dispatch(setSelectedDate(e.target.value))}
-        >
-          {availableDates.map((d) => (
-            <option key={d} value={d}>
-              {d}
-            </option>
+    <FilterBarOuter aria-label="內容篩選">
+      <FilterWrapper>
+        <ChipRow role="tablist" aria-label="穿搭分類">
+          {keywords.map((kw) => (
+            <Chip
+              key={kw}
+              type="button"
+              role="tab"
+              aria-selected={selectedKeyword === kw}
+              $active={selectedKeyword === kw}
+              onClick={() => dispatch(setSelectedKeyword(kw))}
+            >
+              {kw}
+            </Chip>
           ))}
-        </DateSelect>
-      </DateRow>
-    </FilterWrapper>
+        </ChipRow>
+
+        <DateRow>
+          <DateLabel htmlFor="issue-date-select">ISSUE DATE</DateLabel>
+          <DateSelect
+            id="issue-date-select"
+            value={selectedDate}
+            onChange={(e) => dispatch(setSelectedDate(e.target.value))}
+          >
+            {availableDates.map((d) => (
+              <option key={d} value={d}>
+                {d}
+              </option>
+            ))}
+          </DateSelect>
+        </DateRow>
+      </FilterWrapper>
+    </FilterBarOuter>
   );
 };
 
