@@ -1,4 +1,90 @@
 {
+  "2026-11-27": {
+    "keyword_tags": [
+      "男生穿搭",
+      "美式復古",
+      "工裝穿搭",
+      "日系穿搭",
+      "古著穿搭",
+      "menswear",
+      "amekaji",
+      "cityboy",
+      "メンズファッション",
+      "古着コーデ"
+    ],
+    "ai_summary": {
+      "title": "今日 Threads 穿搭趨勢與社群觀察",
+      "intro": "今天的 Threads 穿搭討論主要聚焦在男士穿搭的單品搭配哲學、古著與現行品牌的混搭技巧，以及社群對於穿搭盲點與趨勢的熱烈交流。許多網友開始探討如何避免古著穿搭流於過度復古或像萬聖節裝扮，並尋求更具現代感的混搭平衡。同時，關於男士造型中「自然年輕感」與「刻意裝嫩」的界線也引發了有趣的討論。",
+      "highlights": [
+        {
+          "title": "古著與現代品牌的混搭哲學",
+          "description": "有網友分享全身古著容易流於像角色扮演或過度復古的現象，建議透過古著與現行品牌的單品混搭（例如古著 Tee 搭配現行款褲裝與鞋履），更能穿出符合現代審美的日常感。",
+          "url": "https://www.threads.com/@11yu09a/post/DfO0L3bjyvr"
+        },
+        {
+          "title": "男士自然減齡與刻意裝嫩的差異",
+          "description": "探討了男生穿搭中「自然若々しい（自然顯得年輕）」與「若作り（刻意裝年輕）」的不同，指出盲目堆疊流行單品或過度放大品牌 Logo 反而容易適得其反。",
+          "url": "https://www.threads.com/@ren_.biyou._/post/DfNrZhdE6wt"
+        },
+        {
+          "title": "男裝社群對不理解流行趨勢的提問",
+          "description": "有海外男裝創作者發起討論，詢問大家有哪些無論如何流行都無法理解的穿搭趨勢，引起社群成員對於當代潮流現象的反思與熱烈交流。",
+          "url": "https://www.threads.com/@helmuttpaul/post/DfsRmyxlAOs"
+        },
+        {
+          "title": "古著冷門單品的搭配探討",
+          "description": "觀察到古著愛好者對於某些獨特單品（如法老夾克 Pharaoh Jacket）在街頭能見度與實際銷售熱度不成正比的現象提出討論與好奇。",
+          "url": "https://www.threads.com/@pal_pal_pal_23/post/DgHYLSAo5gi"
+        }
+      ]
+    },
+    "posts": [
+      {
+        "permalink": "https://www.threads.com/@helmuttpaul/post/DfsRmyxlAOs",
+        "username": "helmuttpaul",
+        "post_date": "2026-11-13",
+        "content": "Menswear guys, what’s one clothing trend you never understood, no matter how popular it got?",
+        "likes": 89,
+        "comments": 491,
+        "reposts": 3,
+        "shares": 1,
+        "keyword": "menswear"
+      },
+      {
+        "permalink": "https://www.threads.com/@ren_.biyou._/post/DfNrZhdE6wt",
+        "username": "ren_.biyou._",
+        "post_date": "2026-11-1",
+        "content": "若作りしてる男と、自然に若々しく見える男って違う。\n■ 若作りに見えやすい男\n・流行を全部取り入れる\n・サイズが合わない服を着る\n・ブランドロゴを目立たせる\n・派手なアイテムを重ねる\n■ 自然に若々しく見える男",
+        "likes": 3,
+        "comments": 3,
+        "reposts": 0,
+        "shares": 0,
+        "keyword": "メンズファッション"
+      },
+      {
+        "permalink": "https://www.threads.com/@11yu09a/post/DfO0L3bjyvr",
+        "username": "11yu09a",
+        "post_date": "2026-11-1",
+        "content": "個人的に、全身古着で固めたコーデって一歩間違えるとコスプレ感が強くなると思う。\n古着の良さは好きだけど、上下どちらも年代や雰囲気を合わせすぎると、当時の格好をそのまま再現しているように見えてしまう。\n例えば古着のTシャツを着るなら、パンツや靴は現行ブランドを取り入れるくらいがちょうどいい。\n古着と現行をミックスすることで、今っぽさも出るし、単なる古着好きの格好で終わらないと思う。\n古着を着こなすことと、昔のスタイルを再現することは別だと思う。",
+        "likes": 12,
+        "comments": 12,
+        "reposts": 0,
+        "shares": 0,
+        "keyword": "古着コーデ"
+      },
+      {
+        "permalink": "https://www.threads.com/@pal_pal_pal_23/post/DgHYLSAo5gi",
+        "username": "pal_pal_pal_23",
+        "post_date": "3天",
+        "content": "古着好きにファラオジャケット着てる人を本当に見かけない。でも古着屋で見かけるし、それなりに数も売っている。不思議です。",
+        "likes": 117,
+        "comments": 65,
+        "reposts": 0,
+        "shares": 0,
+        "keyword": "古着コーデ"
+      }
+    ]
+  },
   "2026-11-26": {
     "keyword_tags": [
       "男生穿搭",
@@ -664,211 +750,6 @@
         "comments": 155,
         "reposts": 45,
         "shares": 122,
-        "keyword": "阿美咔嘰"
-      }
-    ]
-  },
-  "2026-11-22": {
-    "keyword_tags": [
-      "男生穿搭",
-      "美式復古",
-      "阿美咔嘰"
-    ],
-    "ai_summary": {
-      "title": "今日 Threads 穿搭熱門追蹤 (AI 摘要未啟用)",
-      "intro": "今日共擷取到 15 篇相關貼文。以下是部分精選內容：",
-      "highlights": [
-        {
-          "title": "來自 @potato_potato_gato_123 的貼文",
-          "description": "給男性穿搭新手小白的建議： 1.不要穿短褲 2.鞋子不要穿涼鞋、拖鞋 3.不要穿3種不同顏色的衣服、...",
-          "url": "https://www.threads.com/@potato_potato_gato_123/post/DUqJG43CYcW"
-        },
-        {
-          "title": "來自 @we.0011___ 的貼文",
-          "description": "在NET挖到很適合當內襯的洋裝跟好看鏈子⛓️‍💥...",
-          "url": "https://www.threads.com/@we.0011___/post/DZuhMWekoFB"
-        },
-        {
-          "title": "來自 @we.0011___ 的貼文",
-          "description": "真的推薦廣大男性們可以嘗試看看裙裝！...",
-          "url": "https://www.threads.com/@we.0011___/post/DZwdEhZEuom"
-        },
-        {
-          "title": "來自 @keaidawang123 的貼文",
-          "description": "国内有些男化妆师真的要更新下审美了好吧😑好老气的妆，还显得脏脏的...",
-          "url": "https://www.threads.com/@keaidawang123/post/Dc5dSb6DMPD"
-        },
-        {
-          "title": "來自 @cuu_uin 的貼文",
-          "description": "我一直很羨慕男生的穿搭很簡單就很好看 男生只要一件好看的褲子➕隨便一件上衣就很好看 女生還要一堆配件...",
-          "url": "https://www.threads.com/@cuu_uin/post/DUvsiySj_QK"
-        }
-      ]
-    },
-    "posts": [
-      {
-        "permalink": "https://www.threads.com/@potato_potato_gato_123/post/DUqJG43CYcW",
-        "username": "potato_potato_gato_123",
-        "post_date": "2026-2-12",
-        "content": "給男性穿搭新手小白的建議：\n1.不要穿短褲\n2.鞋子不要穿涼鞋、拖鞋\n3.不要穿3種不同顏色的衣服、會很花\n4.儘量以深黑或白色上衣為主\n5.可以多搭配吊飾、小物件\n6.一定要噴香水\n7.約會儘量穿西裝或襯衫、好感度增加\n8.多加強手臂訓練、穿襯衫會更好看",
-        "likes": 919,
-        "comments": 101,
-        "reposts": 17,
-        "shares": 48,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@we.0011___/post/DZuhMWekoFB",
-        "username": "we.0011___",
-        "post_date": "2026-6-18",
-        "content": "在NET挖到很適合當內襯的洋裝跟好看鏈子⛓️‍💥",
-        "likes": 16000,
-        "comments": 876,
-        "reposts": 302,
-        "shares": 1653,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@we.0011___/post/DZwdEhZEuom",
-        "username": "we.0011___",
-        "post_date": "2026-6-18",
-        "content": "真的推薦廣大男性們可以嘗試看看裙裝！",
-        "likes": 975,
-        "comments": 34,
-        "reposts": 9,
-        "shares": 146,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@keaidawang123/post/Dc5dSb6DMPD",
-        "username": "keaidawang123",
-        "post_date": "2026-9-5",
-        "content": "国内有些男化妆师真的要更新下审美了好吧😑好老气的妆，还显得脏脏的",
-        "likes": 369,
-        "comments": 44,
-        "reposts": 3,
-        "shares": 0,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@cuu_uin/post/DUvsiySj_QK",
-        "username": "cuu_uin",
-        "post_date": "2026-2-14",
-        "content": "我一直很羨慕男生的穿搭很簡單就很好看\n男生只要一件好看的褲子➕隨便一件上衣就很好看\n女生還要一堆配件 而且要會搭才比較好看",
-        "likes": 440,
-        "comments": 17,
-        "reposts": 4,
-        "shares": 16,
-        "keyword": "男生穿搭"
-      },
-      {
-        "permalink": "https://www.threads.com/@queenie_liiii/post/DIgH2PqhCpS",
-        "username": "queenie_liiii",
-        "post_date": "2025-4-16",
-        "content": "台灣怎麼都是北歐風、侘寂風裝潢\n怎麼很少法式、美式鄉村風的\n硬裝、軟裝、設計可以參考🥹",
-        "likes": 77,
-        "comments": 37,
-        "reposts": 6,
-        "shares": 0,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@92.c71n_/post/DFUxVpHTUwj",
-        "username": "92.c71n_",
-        "post_date": "2025-1-27",
-        "content": "求北部很會處理自然捲跟美式前刺的設計師🥹🙏🏻",
-        "likes": 41,
-        "comments": 9,
-        "reposts": 35,
-        "shares": 0,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@taitai.iiit/post/DZNXy0UEx-D",
-        "username": "taitai.iiit",
-        "post_date": "2026-6-5",
-        "content": "喜歡 Cortis 美式復古穿搭的女生，一定不能錯過這家美式風格寶藏店！！\n比中山站便宜一半以上😍\n劇透\n劇透\n劇透\n劇透\n劇透",
-        "likes": 50,
-        "comments": 1,
-        "reposts": 1,
-        "shares": 58,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@kafka_2000_09/post/DHkPcnPPQt0",
-        "username": "kafka_2000_09",
-        "post_date": "2025-3-23",
-        "content": "：為什麼你的店風格這麼美式\n因為我自己愛爆美式復古",
-        "likes": 2158,
-        "comments": 25,
-        "reposts": 20,
-        "shares": 25,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@auxirowenra/post/DSlUtOAjYZ-",
-        "username": "auxirowenra",
-        "post_date": "2025-12-22",
-        "content": "感觉身边去了美国的很多女生朋友无论之前风格如何都清一色变成了经典美式亚裔妆容。。。震惊之余对美国审美流行风向的带动效果有一丝丝恐惧。。。",
-        "likes": 351,
-        "comments": 42,
-        "reposts": 2,
-        "shares": 5,
-        "keyword": "美式復古"
-      },
-      {
-        "permalink": "https://www.threads.com/@ty_11_07/post/DfZW4LvFLjA",
-        "username": "ty_11_07",
-        "post_date": "2026-11-6",
-        "content": "現在有阿米在防彈快閃店的嗎🥺想用智旻尼換玧其🥺",
-        "likes": 93,
-        "comments": 18,
-        "reposts": 6,
-        "shares": 0,
-        "keyword": "阿美咔嘰"
-      },
-      {
-        "permalink": "https://www.threads.com/@flower_yijen/post/DG0fdItyyZ5",
-        "username": "flower_yijen",
-        "post_date": "2025-3-5",
-        "content": "不要太羨慕我🤣\n我跟阿美拍到照了😍😍😍\n阿美本人超美❤️🩷💚",
-        "likes": 5812,
-        "comments": 124,
-        "reposts": 53,
-        "shares": 4,
-        "keyword": "阿美咔嘰"
-      },
-      {
-        "permalink": "https://www.threads.com/@teresa.hsu89/post/DfgR2UwkgNB",
-        "username": "teresa.hsu89",
-        "post_date": "2026-11-8",
-        "content": "正在回覆@sfy66.66\n沒空看脆沒跟到",
-        "likes": 2,
-        "comments": 1,
-        "reposts": 0,
-        "shares": 0,
-        "keyword": "阿美咔嘰"
-      },
-      {
-        "permalink": "https://www.threads.com/@sfy66.66/post/DfgSlKhkiT5",
-        "username": "sfy66.66",
-        "post_date": "2026-11-8",
-        "content": "阿麥也有賴，有興趣蜜我",
-        "likes": 4,
-        "comments": 2,
-        "reposts": 0,
-        "shares": 0,
-        "keyword": "阿美咔嘰"
-      },
-      {
-        "permalink": "https://www.threads.com/@rain11drea_/post/Df4xpgekpbV",
-        "username": "rain11drea_",
-        "post_date": "3天",
-        "content": "赖子六位免费男终于落地阿美利卡",
-        "likes": 155,
-        "comments": 9,
-        "reposts": 4,
-        "shares": 0,
         "keyword": "阿美咔嘰"
       }
     ]
